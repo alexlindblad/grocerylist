@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LoginViewController.swift
 //  TKGroceryList
 //
 //  Created by Alex Lindblad on 1/20/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LoginViewController: PFLogInViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
