@@ -21,5 +21,6 @@ struct Constants {
     
     struct Registration {
         static let MinPasswordLength = 4 as UInt
+        static let EmailAsUserName = true as Bool
     }
 }
