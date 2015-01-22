@@ -12,12 +12,15 @@ class LoginViewController: PFLogInViewController, PFLogInViewControllerDelegate,
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // setup login view
         self.logInView.dismissButton.hidden = true
         self.logInView.logo = nil
         self.delegate = self
         
+        // setup signup view
         self.signUpController.delegate = self
         self.signUpController.signUpView.logo = nil
+        self.signUpController.minPasswordLength = Constants.Registration.MinPasswordLength
     }
 
     override func didReceiveMemoryWarning() {
