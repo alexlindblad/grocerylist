@@ -1,0 +1,11 @@
+{
+    "applications": {
+        "TKGroceryList": {
+            "applicationId": "ZmLm9c5ZZcaCBsYAHotorplMrd4lEGD4NRGRlE9G", 
+            "masterKey": "bjxycIAXnqMHntSRMmITNs9yVXNPvASGVFl9nZhx"
+        }, 
+        "_default": {
+            "link": "TKGroceryList"
+        }
+    }
+}

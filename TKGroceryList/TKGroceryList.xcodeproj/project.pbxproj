@@ -14,7 +14,6 @@
 		FA0E15F91A6F09DE0075B424 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA0E15F81A6F09DE0075B424 /* Images.xcassets */; };
 		FA0E15FC1A6F09DE0075B424 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA0E15FA1A6F09DE0075B424 /* LaunchScreen.xib */; };
 		FA0E16081A6F09DE0075B424 /* TKGroceryListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E16071A6F09DE0075B424 /* TKGroceryListTests.swift */; };
-		FA2DF1BA1A70B1B8004FD44E /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA2DF1B91A70B1B8004FD44E /* Parse.framework */; };
 		FA2DF1BC1A70B1C5004FD44E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA2DF1BB1A70B1C5004FD44E /* AudioToolbox.framework */; };
 		FA2DF1BE1A70B1CE004FD44E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA2DF1BD1A70B1CE004FD44E /* CFNetwork.framework */; };
 		FA2DF1C01A70B1D8004FD44E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA2DF1BF1A70B1D8004FD44E /* CoreGraphics.framework */; };
@@ -26,8 +25,11 @@
 		FA2DF1CC1A70B220004FD44E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA2DF1CB1A70B220004FD44E /* SystemConfiguration.framework */; };
 		FA2DF1CE1A70B229004FD44E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FA2DF1CD1A70B229004FD44E /* libz.dylib */; };
 		FA2DF1D01A70B233004FD44E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FA2DF1CF1A70B233004FD44E /* libsqlite3.dylib */; };
-		FA2DF1D61A70B426004FD44E /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA2DF1D51A70B426004FD44E /* Bolts.framework */; };
 		FA2DF1D81A70B59A004FD44E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2DF1D71A70B59A004FD44E /* Constants.swift */; };
+		FA2DF1E71A70BAB9004FD44E /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA2DF1E61A70BAB9004FD44E /* Parse.framework */; };
+		FA2DF1E91A70BAC6004FD44E /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA2DF1E81A70BAC6004FD44E /* Bolts.framework */; };
+		FA2DF1EB1A70BAD3004FD44E /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA2DF1EA1A70BAD3004FD44E /* ParseCrashReporting.framework */; };
+		FA2DF1F11A70BBE6004FD44E /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FA2DF1F01A70BBE6004FD44E /* libstdc++.6.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +54,6 @@
 		FA0E16011A6F09DE0075B424 /* TKGroceryListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TKGroceryListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA0E16061A6F09DE0075B424 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA0E16071A6F09DE0075B424 /* TKGroceryListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TKGroceryListTests.swift; sourceTree = "<group>"; };
-		FA2DF1B91A70B1B8004FD44E /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = external/Parse/Parse.framework; sourceTree = "<group>"; };
 		FA2DF1BB1A70B1C5004FD44E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		FA2DF1BD1A70B1CE004FD44E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		FA2DF1BF1A70B1D8004FD44E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -65,8 +66,12 @@
 		FA2DF1CD1A70B229004FD44E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		FA2DF1CF1A70B233004FD44E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		FA2DF1D21A70B2FC004FD44E /* TKGroceryList-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TKGroceryList-Bridging-Header.h"; sourceTree = "<group>"; };
-		FA2DF1D51A70B426004FD44E /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = external/Parse/Bolts.framework; sourceTree = "<group>"; };
 		FA2DF1D71A70B59A004FD44E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FA2DF1E61A70BAB9004FD44E /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = external/Parse/Parse.framework; sourceTree = "<group>"; };
+		FA2DF1E81A70BAC6004FD44E /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = external/Parse/Bolts.framework; sourceTree = "<group>"; };
+		FA2DF1EA1A70BAD3004FD44E /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseCrashReporting.framework; path = external/Parse/ParseCrashReporting.framework; sourceTree = "<group>"; };
+		FA2DF1EC1A70BAFC004FD44E /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+		FA2DF1F01A70BBE6004FD44E /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,8 +79,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA2DF1D61A70B426004FD44E /* Bolts.framework in Frameworks */,
-				FA2DF1BA1A70B1B8004FD44E /* Parse.framework in Frameworks */,
+				FA2DF1F11A70BBE6004FD44E /* libstdc++.6.dylib in Frameworks */,
+				FA2DF1EB1A70BAD3004FD44E /* ParseCrashReporting.framework in Frameworks */,
+				FA2DF1E91A70BAC6004FD44E /* Bolts.framework in Frameworks */,
+				FA2DF1E71A70BAB9004FD44E /* Parse.framework in Frameworks */,
 				FA2DF1D01A70B233004FD44E /* libsqlite3.dylib in Frameworks */,
 				FA2DF1CE1A70B229004FD44E /* libz.dylib in Frameworks */,
 				FA2DF1CC1A70B220004FD44E /* SystemConfiguration.framework in Frameworks */,
@@ -163,7 +170,11 @@
 		FA2DF1D11A70B261004FD44E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FA2DF1D51A70B426004FD44E /* Bolts.framework */,
+				FA2DF1F01A70BBE6004FD44E /* libstdc++.6.dylib */,
+				FA2DF1EC1A70BAFC004FD44E /* libstdc++.dylib */,
+				FA2DF1EA1A70BAD3004FD44E /* ParseCrashReporting.framework */,
+				FA2DF1E81A70BAC6004FD44E /* Bolts.framework */,
+				FA2DF1E61A70BAB9004FD44E /* Parse.framework */,
 				FA2DF1CF1A70B233004FD44E /* libsqlite3.dylib */,
 				FA2DF1CD1A70B229004FD44E /* libz.dylib */,
 				FA2DF1CB1A70B220004FD44E /* SystemConfiguration.framework */,
@@ -175,7 +186,6 @@
 				FA2DF1BF1A70B1D8004FD44E /* CoreGraphics.framework */,
 				FA2DF1BD1A70B1CE004FD44E /* CFNetwork.framework */,
 				FA2DF1BB1A70B1C5004FD44E /* AudioToolbox.framework */,
-				FA2DF1B91A70B1B8004FD44E /* Parse.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -190,6 +200,7 @@
 				FA0E15E51A6F09DE0075B424 /* Sources */,
 				FA0E15E61A6F09DE0075B424 /* Frameworks */,
 				FA0E15E71A6F09DE0075B424 /* Resources */,
+				FA2DF1F21A70BE34004FD44E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -274,6 +285,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		FA2DF1F21A70BE34004FD44E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=/usr/local/bin:$PATH\ncd ${SRCROOT}/parse\n \nparse symbols \"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FA0E15E51A6F09DE0075B424 /* Sources */ = {
