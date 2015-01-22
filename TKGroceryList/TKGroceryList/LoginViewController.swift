@@ -12,6 +12,8 @@ class LoginViewController: PFLogInViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.logInView.dismissButton.hidden = true
+        self.logInView.logo = nil
         // Do any additional setup after loading the view, typically from a nib.
     }
 
