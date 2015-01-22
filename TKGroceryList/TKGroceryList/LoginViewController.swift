@@ -17,6 +17,7 @@ class LoginViewController: PFLogInViewController, PFLogInViewControllerDelegate,
         self.delegate = self
         
         self.signUpController.delegate = self
+        self.signUpController.signUpView.logo = nil
     }
 
     override func didReceiveMemoryWarning() {
