@@ -8,13 +8,15 @@
 
 import UIKit
 
-class LoginViewController: PFLogInViewController {
+class LoginViewController: PFLogInViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.logInView.dismissButton.hidden = true
         self.logInView.logo = nil
-        // Do any additional setup after loading the view, typically from a nib.
+        self.delegate = self
+        
+        self.signUpController.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,5 +24,17 @@ class LoginViewController: PFLogInViewController {
         // Dispose of any resources that can be recreated.
     }
 
+// MARK: PFLogInViewControllerDelegate methods
+    func logInViewController(controller: PFLogInViewController, didLogInUser user: PFUser!) -> Void {
+        self.performSegueWithIdentifier(Constants.Segue.MainView, sender: nil)
+        // go to main view
+    }
+    
+// MARKL PFSignUpViewControllerDelegate methods
+    func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) -> Void {
+        self.signUpController.dismissViewControllerAnimated(true, completion: {(Void) in
+            self.performSegueWithIdentifier(Constants.Segue.MainView, sender: nil)
+        })
+    }
 }
 
