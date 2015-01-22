@@ -18,4 +18,9 @@ struct Constants {
     struct Segue {
         static let MainView = "MainViewSegue" as String
     }
+    
+    struct Registration {
+        static let MinPasswordLength = 4 as UInt
+        static let EmailAsUserName = true as Bool
+    }
 }
