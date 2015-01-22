@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		FA0E15EF1A6F09DE0075B424 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E15EE1A6F09DE0075B424 /* AppDelegate.swift */; };
-		FA0E15F21A6F09DE0075B424 /* TKGroceryList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA0E15F01A6F09DE0075B424 /* TKGroceryList.xcdatamodeld */; };
 		FA0E15F41A6F09DE0075B424 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E15F31A6F09DE0075B424 /* ViewController.swift */; };
 		FA0E15F71A6F09DE0075B424 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA0E15F51A6F09DE0075B424 /* Main.storyboard */; };
 		FA0E15F91A6F09DE0075B424 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA0E15F81A6F09DE0075B424 /* Images.xcassets */; };
@@ -46,7 +45,6 @@
 		FA0E15E91A6F09DE0075B424 /* TKGroceryList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TKGroceryList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA0E15ED1A6F09DE0075B424 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA0E15EE1A6F09DE0075B424 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FA0E15F11A6F09DE0075B424 /* TKGroceryList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TKGroceryList.xcdatamodel; sourceTree = "<group>"; };
 		FA0E15F31A6F09DE0075B424 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FA0E15F61A6F09DE0075B424 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA0E15F81A6F09DE0075B424 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -134,7 +132,6 @@
 				FA0E15F51A6F09DE0075B424 /* Main.storyboard */,
 				FA0E15F81A6F09DE0075B424 /* Images.xcassets */,
 				FA0E15FA1A6F09DE0075B424 /* LaunchScreen.xib */,
-				FA0E15F01A6F09DE0075B424 /* TKGroceryList.xcdatamodeld */,
 				FA0E15EC1A6F09DE0075B424 /* Supporting Files */,
 				FA2DF1D21A70B2FC004FD44E /* TKGroceryList-Bridging-Header.h */,
 				FA2DF1D71A70B59A004FD44E /* Constants.swift */,
@@ -308,7 +305,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA0E15F41A6F09DE0075B424 /* ViewController.swift in Sources */,
-				FA0E15F21A6F09DE0075B424 /* TKGroceryList.xcdatamodeld in Sources */,
 				FA0E15EF1A6F09DE0075B424 /* AppDelegate.swift in Sources */,
 				FA2DF1D81A70B59A004FD44E /* Constants.swift in Sources */,
 			);
@@ -527,19 +523,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		FA0E15F01A6F09DE0075B424 /* TKGroceryList.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				FA0E15F11A6F09DE0075B424 /* TKGroceryList.xcdatamodel */,
-			);
-			currentVersion = FA0E15F11A6F09DE0075B424 /* TKGroceryList.xcdatamodel */;
-			path = TKGroceryList.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = FA0E15E11A6F09DE0075B424 /* Project object */;
 }
