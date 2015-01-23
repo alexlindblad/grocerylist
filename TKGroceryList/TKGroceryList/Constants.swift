@@ -23,4 +23,12 @@ struct Constants {
         static let MinPasswordLength = 4 as UInt
         static let EmailAsUserName = true as Bool
     }
+    
+    struct ObjectName {
+        static let GroceryListItem = "GrocerListItem" as String
+    }
+    
+    struct ObjectKey {
+        static let CreatedAt = "createdAt" as String
+    }
 }
