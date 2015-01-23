@@ -39,18 +39,27 @@ class GroceryListTableViewController: PFQueryTableViewController {
             cellForRowAtIndexPath indexPath: NSIndexPath,
             object: PFObject) -> PFTableViewCell {
             
-        var cellIdentifier = "cell"
+        var cellIdentifier = Constants.CellReuseID.GroceryItemCell
+        
+        var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as GroceryItemCell
      
-        var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as PFTableViewCell!
-        if cell == nil {
-            cell = PFTableViewCell(style: UITableViewCellStyle.Subtitle,
-                                   reuseIdentifier:cellIdentifier)
+        // Configure the cell
+        var groceryItem = object[Constants.GroceryListItemKey.Item] as PFObject
+        var quantity = object[Constants.GroceryListItemKey.Quantity] as PFObject
+        groceryItem.fetchIfNeededInBackgroundWithBlock { (item, error) -> Void in
+            var name = groceryItem[Constants.GroceryItemKey.Name] as NSString!
+
+            quantity.fetchIfNeededInBackgroundWithBlock { (qty, error) -> Void in
+                var num = qty[Constants.QuantityKey.Value] as NSNumber!
+                var type = qty[Constants.QuantityKey.Type] as NSString!
+                dispatch_async(dispatch_get_main_queue()) {
+                    if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) as GroceryItemCell? {
+                        cellToUpdate.quantityLabel?.text = String(format: "%@ %@", num, type)
+                        cellToUpdate.itemName?.text = item[Constants.GroceryItemKey.Name] as NSString
+                    }
+                }
+            }
         }
-     
-        // Configure the cell to show todo item with a priority at the bottom
-        cell.textLabel?.text = object["name"] as NSString
-        var num = object["quantity"] as NSNumber
-        cell.detailTextLabel?.text = String(format: "%@", num)
         
         return cell
     }

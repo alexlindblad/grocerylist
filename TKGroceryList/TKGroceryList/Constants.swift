@@ -19,16 +19,41 @@ struct Constants {
         static let MainView = "MainViewSegue" as String
     }
     
+    struct CellReuseID {
+        static let GroceryItemCell = "GroceryItemCellID" as String
+    }
+    
     struct Registration {
         static let MinPasswordLength = 4 as UInt
         static let EmailAsUserName = true as Bool
     }
     
     struct ObjectName {
-        static let GroceryListItem = "GrocerListItem" as String
+        static let GroceryListItem = "GroceryListItem" as String
     }
     
     struct ObjectKey {
+        static let ObjectID = "objectId" as String
         static let CreatedAt = "createdAt" as String
+        static let EditedAt = "editedAt" as String
+    }
+    
+    struct GroceryItemKey {
+        static let Name = "name" as String
+        static let Location = "location" as String
+    }
+    
+    struct GroceryListItemKey {
+        static let Item = "item" as String
+        static let Quantity = "quantity" as String
+    }
+    
+    struct QuantityKey {
+        static let Value = "value" as String
+        static let Type = "type" as String
+    }
+    
+    struct StoreLocationKey {
+        static let Name = "name" as String
     }
 }
