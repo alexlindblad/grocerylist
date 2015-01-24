@@ -41,7 +41,7 @@ class GroceryListTableViewController: PFQueryTableViewController {
             
         var cellIdentifier = Constants.CellReuseID.GroceryItemCell
         
-        var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as GroceryItemCell
+        var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as GroceryItemCell
      
         // Configure the cell
         var groceryItem = object[Constants.GroceryListItemKey.Item] as PFObject

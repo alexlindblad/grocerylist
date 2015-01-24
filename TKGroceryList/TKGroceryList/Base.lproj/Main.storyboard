@@ -8,7 +8,7 @@
         <!--Login View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="LoginViewController" customModule="TKGroceryList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="vXZ-lx-hvc" customClass="LoginViewController" customModule="TKGroceryList" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -19,22 +19,59 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="V7g-Yh-qX2" kind="showDetail" identifier="MainViewSegue" id="K7e-kb-SqV"/>
+                        <segue destination="6l9-4r-mvN" kind="show" identifier="MainViewSegue" id="0PX-zF-L8A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="xfp-zt-gp0">
+            <objects>
+                <tabBarController id="6l9-4r-mvN" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Xff-lH-bRj"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="HIx-g7-M7r">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="bSV-ww-vpa" kind="relationship" relationship="viewControllers" id="OHB-C4-kyu"/>
+                        <segue destination="ghK-x4-zgf" kind="relationship" relationship="viewControllers" id="9ny-lo-3JJ"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WgN-Ck-qXc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1470" y="369"/>
+        </scene>
+        <!--List-->
+        <scene sceneID="OBc-dn-vZT">
+            <objects>
+                <navigationController id="bSV-ww-vpa" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="List" id="o8f-aG-byD"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lKd-e9-HfH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="GJ0-DE-eIP" kind="relationship" relationship="rootViewController" id="yT8-mV-SY4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fJb-OP-iTG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2140" y="172"/>
+        </scene>
         <!--Grocery List-->
         <scene sceneID="t3b-rZ-AUz">
             <objects>
                 <tableViewController id="GJ0-DE-eIP" customClass="GroceryListTableViewController" customModule="TKGroceryList" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="Sdf-sP-zjg">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="60" sectionHeaderHeight="1" sectionFooterHeight="1" id="Sdf-sP-zjg">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroceryItemCellID" id="XjE-k4-de9" customClass="GroceryItemCell" customModule="TKGroceryList" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroceryItemCellID" rowHeight="60" id="XjE-k4-de9" customClass="GroceryItemCell" customModule="TKGroceryList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XjE-k4-de9" id="n0K-8k-yHU">
@@ -69,27 +106,74 @@
                             <outlet property="delegate" destination="GJ0-DE-eIP" id="MmM-SB-JO2"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Grocery List" id="Kfe-Nn-kQB"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="dGO-Vu-zdN"/>
+                    <navigationItem key="navigationItem" title="Grocery List" id="3X1-QR-gII"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aFd-p7-XcP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2086" y="218"/>
+            <point key="canvasLocation" x="2878" y="158"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="SRQ-Qb-kNa">
+        <!--Settings-->
+        <scene sceneID="WqR-G2-Zbn">
             <objects>
-                <navigationController id="V7g-Yh-qX2" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CwI-YM-gNJ">
+                <tableViewController id="FUe-UD-xFa" customClass="SettingsViewController" customModule="TKGroceryList" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" dataMode="static" style="grouped" separatorStyle="none" rowHeight="60" sectionHeaderHeight="10" sectionFooterHeight="10" id="ccs-wG-E1E">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="R92-Cx-Q3h">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="vAu-Bk-4wm">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vAu-Bk-4wm" id="E3U-SF-is6">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iFl-cL-lAd">
+                                                    <rect key="frame" x="0.0" y="8" width="600" height="44"/>
+                                                    <state key="normal" title="Logout">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="logOut:" destination="FUe-UD-xFa" eventType="touchUpInside" id="wCV-PH-GEK"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerX" secondItem="iFl-cL-lAd" secondAttribute="centerX" id="836-Xl-r8e"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="FUe-UD-xFa" id="Jk4-n3-OFb"/>
+                            <outlet property="delegate" destination="FUe-UD-xFa" id="V7x-e7-5vf"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Settings" id="tXo-JW-6XC"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NX5-ZL-uNa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2896" y="1054"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="t6L-dx-5Yl">
+            <objects>
+                <navigationController id="ghK-x4-zgf" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" id="Nqf-Le-OAr"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="E1r-Yv-qbO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="GJ0-DE-eIP" kind="relationship" relationship="rootViewController" id="Lh0-q5-q6R"/>
+                        <segue destination="FUe-UD-xFa" kind="relationship" relationship="rootViewController" id="0H8-Hg-bUp"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="STb-06-cxH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uNi-Yp-Xte" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1136" y="218"/>
+            <point key="canvasLocation" x="2122" y="1096"/>
         </scene>
     </scenes>
 </document>

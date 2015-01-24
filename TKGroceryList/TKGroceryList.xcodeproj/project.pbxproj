@@ -34,6 +34,7 @@
 		FA2DF1FA1A70D41B004FD44E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA2DF1F91A70D41B004FD44E /* Social.framework */; };
 		FA2DF1FC1A71EAD0004FD44E /* GroceryListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2DF1FB1A71EAD0004FD44E /* GroceryListTableViewController.swift */; };
 		FA2DF2001A730028004FD44E /* GroceryItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2DF1FF1A730028004FD44E /* GroceryItemCell.swift */; };
+		FA2DF2061A733384004FD44E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2DF2051A733384004FD44E /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		FA2DF1F91A70D41B004FD44E /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		FA2DF1FB1A71EAD0004FD44E /* GroceryListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryListTableViewController.swift; sourceTree = "<group>"; };
 		FA2DF1FF1A730028004FD44E /* GroceryItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryItemCell.swift; sourceTree = "<group>"; };
+		FA2DF2051A733384004FD44E /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 				FA2DF1D71A70B59A004FD44E /* Constants.swift */,
 				FA2DF1FB1A71EAD0004FD44E /* GroceryListTableViewController.swift */,
 				FA2DF1FF1A730028004FD44E /* GroceryItemCell.swift */,
+				FA2DF2051A733384004FD44E /* SettingsViewController.swift */,
 			);
 			path = TKGroceryList;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				FA0E15F41A6F09DE0075B424 /* LoginViewController.swift in Sources */,
 				FA0E15EF1A6F09DE0075B424 /* AppDelegate.swift in Sources */,
 				FA2DF1D81A70B59A004FD44E /* Constants.swift in Sources */,
+				FA2DF2061A733384004FD44E /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
