@@ -45,5 +45,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    class func getAppDelegate() -> AppDelegate {
+        return UIApplication.sharedApplication().delegate as AppDelegate
+    }
+
+    func logOut() -> Void {
+        PFUser.logOut();
+        var loginVC = UIStoryboard(name: Constants.StoryBoardID.MainSBName, bundle: nil).instantiateViewControllerWithIdentifier(Constants.StoryBoardID.LogIn) as UIViewController
+        self.window?.rootViewController = loginVC
+    }
 }
 

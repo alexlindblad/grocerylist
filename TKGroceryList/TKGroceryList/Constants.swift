@@ -15,6 +15,11 @@ struct Constants {
         static let Key = "Qu3iJjtQdg8JPhj7RlbXukwauAaAcq06vQ1n9Klk" as String
     }
 
+    struct StoryBoardID {
+        static let MainSBName = "Main" as String
+        static let LogIn = "LoginViewController" as String
+    }
+
     struct Segue {
         static let MainView = "MainViewSegue" as String
     }
