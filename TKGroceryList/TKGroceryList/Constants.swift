@@ -51,11 +51,7 @@ struct Constants {
     struct GroceryListItemKey {
         static let Item = "item" as String
         static let Quantity = "quantity" as String
-    }
-    
-    struct QuantityKey {
-        static let Value = "value" as String
-        static let Type = "type" as String
+        static let Units = "unitOfMeasure" as String
     }
     
     struct StoreLocationKey {

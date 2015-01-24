@@ -48,18 +48,16 @@ class GroceryListTableViewController: PFQueryTableViewController, UIActionSheetD
      
         // Configure the cell
         var groceryItem = object[Constants.GroceryListItemKey.Item] as PFObject
-        var quantity = object[Constants.GroceryListItemKey.Quantity] as PFObject
-        groceryItem.fetchIfNeededInBackgroundWithBlock { (item, error) -> Void in
-            var name = groceryItem[Constants.GroceryItemKey.Name] as NSString!
 
-            quantity.fetchIfNeededInBackgroundWithBlock { (qty, error) -> Void in
-                var num = qty[Constants.QuantityKey.Value] as NSNumber!
-                var type = qty[Constants.QuantityKey.Type] as NSString!
-                dispatch_async(dispatch_get_main_queue()) {
-                    if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) as GroceryItemCell? {
-                        cellToUpdate.quantityLabel?.text = String(format: "%@ %@", num, type)
-                        cellToUpdate.itemName?.text = item[Constants.GroceryItemKey.Name] as NSString
-                    }
+        var num   = object[Constants.GroceryListItemKey.Quantity] as NSNumber!
+        var units = object[Constants.GroceryListItemKey.Units] as NSString!
+        cell.quantityLabel?.text = String(format: "%@ %@", num, units)
+
+        groceryItem.fetchIfNeededInBackgroundWithBlock { (object, error) -> Void in
+            var name = object[Constants.GroceryItemKey.Name] as NSString!
+            dispatch_async(dispatch_get_main_queue()) {
+                if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) as GroceryItemCell? {
+                    cellToUpdate.itemName?.text = name as NSString
                 }
             }
         }
