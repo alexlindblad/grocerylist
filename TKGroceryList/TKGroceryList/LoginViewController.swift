@@ -12,6 +12,17 @@ class LoginViewController: PFLogInViewController, PFLogInViewControllerDelegate,
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.initializeUI()
+        self.autoLogin()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+    func initializeUI() -> Void {
         // setup login view
         self.logInView.dismissButton.hidden = true
         self.logInView.logo = nil
@@ -25,11 +36,14 @@ class LoginViewController: PFLogInViewController, PFLogInViewControllerDelegate,
         self.signUpController.emailAsUsername = Constants.Registration.EmailAsUserName
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func autoLogin() -> Void {
+        if let user = PFUser.currentUser() as PFUser? {
+            dispatch_async(dispatch_get_main_queue(), {
+                self.performSegueWithIdentifier(Constants.Segue.MainView, sender: nil)
+            })
+        }
     }
-
+    
 // MARK: PFLogInViewControllerDelegate methods
     func logInViewController(controller: PFLogInViewController, didLogInUser user: PFUser!) -> Void {
         self.performSegueWithIdentifier(Constants.Segue.MainView, sender: nil)
