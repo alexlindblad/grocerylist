@@ -21,7 +21,8 @@ class GroceryListTableViewController: PFQueryTableViewController, UIActionSheetD
         self.paginationEnabled = false
         
         var menuBarButton = UIBarButtonItem(image: UIImage(named: Constants.Image.MoreMenu), style: UIBarButtonItemStyle.Plain, target: self, action: "moreMenuTouched");
-        self.navigationItem.rightBarButtonItem = menuBarButton
+        var plusBarButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "plusButtonTouched")
+        self.navigationItem.rightBarButtonItems = [menuBarButton, plusBarButton]
     }
     
     override func queryForTable() -> PFQuery {
@@ -65,10 +66,15 @@ class GroceryListTableViewController: PFQueryTableViewController, UIActionSheetD
         return cell
     }
     
+    // MARK: internal methods
     func moreMenuTouched() -> Void {
         var actionSheet = UIActionSheet(title: Constants.ActionSheet.Title, delegate: self, cancelButtonTitle: Constants.ActionSheet.Cancel, destructiveButtonTitle: Constants.ActionSheet.Logout) as UIActionSheet
         actionSheet.actionSheetStyle = UIActionSheetStyle.BlackTranslucent
         actionSheet.showInView(self.view)
+    }
+    
+    func plusButtonTouched() -> Void {
+        NSLog("Plust button touched")
     }
     
     // MARK: UIActionSheetDelegate methods
