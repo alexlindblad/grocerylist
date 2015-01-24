@@ -61,4 +61,8 @@ struct Constants {
     struct StoreLocationKey {
         static let Name = "name" as String
     }
+    
+    struct Image {
+        static let MoreMenu = "more_menu_button" as String
+    }
 }

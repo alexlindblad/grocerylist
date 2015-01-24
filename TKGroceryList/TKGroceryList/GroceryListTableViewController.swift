@@ -19,6 +19,9 @@ class GroceryListTableViewController: PFQueryTableViewController {
         self.parseClassName = Constants.ObjectName.GroceryListItem
         self.pullToRefreshEnabled = true
         self.paginationEnabled = false
+        
+        var menuBarButton = UIBarButtonItem(image: UIImage(named: Constants.Image.MoreMenu), style: UIBarButtonItemStyle.Plain, target: self, action: Selector(moreMenuTouched()));
+        self.navigationItem.rightBarButtonItem = menuBarButton
     }
     
     override func queryForTable() -> PFQuery {
@@ -62,5 +65,9 @@ class GroceryListTableViewController: PFQueryTableViewController {
         }
         
         return cell
+    }
+    
+    func moreMenuTouched() -> Void {
+        NSLog("Show Action Sheet");
     }
 }
