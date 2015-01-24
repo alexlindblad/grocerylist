@@ -27,11 +27,13 @@ class LoginViewController: PFLogInViewController, PFLogInViewControllerDelegate,
         self.logInView.dismissButton.hidden = true
         self.logInView.logo = nil
         self.logInView.emailAsUsername = Constants.Registration.EmailAsUserName
+        self.logInView.usernameField.keyboardType = UIKeyboardType.EmailAddress
         self.delegate = self
         
         // setup signup view
         self.signUpController.delegate = self
         self.signUpController.signUpView.logo = nil
+        self.signUpController.signUpView.usernameField.keyboardType = UIKeyboardType.EmailAddress
         self.signUpController.minPasswordLength = Constants.Registration.MinPasswordLength
         self.signUpController.emailAsUsername = Constants.Registration.EmailAsUserName
     }
