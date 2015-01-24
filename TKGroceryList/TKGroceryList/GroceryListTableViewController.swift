@@ -8,7 +8,7 @@
 
 import Foundation
 
-class GroceryListTableViewController: PFQueryTableViewController {
+class GroceryListTableViewController: PFQueryTableViewController, UIActionSheetDelegate {
 
     override init!(style: UITableViewStyle, className: String!) {
         super.init(style: style, className: className)
@@ -20,7 +20,7 @@ class GroceryListTableViewController: PFQueryTableViewController {
         self.pullToRefreshEnabled = true
         self.paginationEnabled = false
         
-        var menuBarButton = UIBarButtonItem(image: UIImage(named: Constants.Image.MoreMenu), style: UIBarButtonItemStyle.Plain, target: self, action: Selector(moreMenuTouched()));
+        var menuBarButton = UIBarButtonItem(image: UIImage(named: Constants.Image.MoreMenu), style: UIBarButtonItemStyle.Plain, target: self, action: "moreMenuTouched");
         self.navigationItem.rightBarButtonItem = menuBarButton
     }
     
@@ -68,6 +68,15 @@ class GroceryListTableViewController: PFQueryTableViewController {
     }
     
     func moreMenuTouched() -> Void {
-        NSLog("Show Action Sheet");
+        var actionSheet = UIActionSheet(title: Constants.ActionSheet.Title, delegate: self, cancelButtonTitle: Constants.ActionSheet.Cancel, destructiveButtonTitle: Constants.ActionSheet.Logout) as UIActionSheet
+        actionSheet.actionSheetStyle = UIActionSheetStyle.BlackTranslucent
+        actionSheet.showInView(self.view)
+    }
+    
+    // MARK: UIActionSheetDelegate methods
+    func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
+        if (buttonIndex == Constants.ActionSheet.LogoutIndex) {
+            AppDelegate.getAppDelegate().logOut()
+        }
     }
 }

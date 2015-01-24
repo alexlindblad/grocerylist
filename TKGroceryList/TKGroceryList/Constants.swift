@@ -65,4 +65,11 @@ struct Constants {
     struct Image {
         static let MoreMenu = "more_menu_button" as String
     }
+    
+    struct ActionSheet {
+        static let Title = "Options" as String
+        static let Cancel = "Cancel" as String
+        static let Logout = "Logout" as String
+        static let LogoutIndex = 0 as Int
+    }
 }
