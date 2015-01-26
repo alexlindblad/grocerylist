@@ -26,7 +26,7 @@ class GroceryListTableViewController: PFQueryTableViewController, UIActionSheetD
     }
     
     override func queryForTable() -> PFQuery {
-        var query = PFQuery(className: self.parseClassName) as PFQuery
+        var query = GroceryListItem.query()
      
         // If no objects are loaded in memory, we look to the cache first to fill the table
         // and then subsequently do a query against the network.
@@ -43,22 +43,21 @@ class GroceryListTableViewController: PFQueryTableViewController, UIActionSheetD
             cellForRowAtIndexPath indexPath: NSIndexPath,
             object: PFObject) -> PFTableViewCell {
             
-        var cellIdentifier = Constants.CellReuseID.GroceryItemCell
+        var cellIdentifier = Constants.CellReuseID.GroceryListItemCell
+        var listItem = object as GroceryListItem
         
         var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as GroceryItemCell
      
         // Configure the cell
-        var groceryItem = object[Constants.GroceryListItemKey.Item] as PFObject
+        var groceryItem = listItem.item
 
-        var num   = object[Constants.GroceryListItemKey.Quantity] as NSNumber!
-        var units = object[Constants.GroceryListItemKey.Units] as NSString!
-        cell.quantityLabel?.text = String(format: "%@ %@", num, units)
+        cell.quantityLabel?.text = String(format: "%@ %@", listItem.quantity, listItem.unitOfMeasure)
 
         groceryItem.fetchIfNeededInBackgroundWithBlock { (object, error) -> Void in
-            var name = object[Constants.GroceryItemKey.Name] as NSString!
+            var groceryItem = object as GroceryItem
             dispatch_async(dispatch_get_main_queue()) {
                 if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) as GroceryItemCell? {
-                    cellToUpdate.itemName?.text = name as NSString
+                    cellToUpdate.itemName?.text = groceryItem.name as NSString
                 }
             }
         }

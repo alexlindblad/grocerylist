@@ -51,7 +51,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroceryItemCellID" rowHeight="60" id="XjE-k4-de9" customClass="GroceryItemCell" customModule="TKGroceryList" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroceryListItemCellID" rowHeight="60" id="XjE-k4-de9" customClass="GroceryItemCell" customModule="TKGroceryList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XjE-k4-de9" id="n0K-8k-yHU">
@@ -89,59 +89,30 @@
                     <tabBarItem key="tabBarItem" title="Item" id="dGO-Vu-zdN"/>
                     <navigationItem key="navigationItem" title="Grocery List" id="3X1-QR-gII"/>
                     <connections>
-                        <segue destination="636-nX-O0x" kind="show" identifier="AddGroceryItemSegue" id="zF2-70-SXV"/>
+                        <segue destination="ks1-Fj-9aQ" kind="show" identifier="AddGroceryItemSegue" id="u4S-46-IQr"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aFd-p7-XcP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1881" y="-225"/>
+            <point key="canvasLocation" x="2036" y="-225"/>
         </scene>
-        <!--Add Grocery List Item View Controller-->
-        <scene sceneID="urM-6e-GT8">
+        <!--Add Item-->
+        <scene sceneID="P2R-an-Kqk">
             <objects>
-                <viewController id="636-nX-O0x" customClass="AddGroceryListItemViewController" customModule="TKGroceryList" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Nvz-FB-iH6"/>
-                        <viewControllerLayoutGuide type="bottom" id="amr-4D-Hzx"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="V65-pO-Ih7">
+                <tableViewController title="Add Item" id="ks1-Fj-9aQ" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="8W1-VF-foO">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <searchBar contentMode="redraw" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BMs-yA-5gr">
-                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="lyp-cr-kcZ"/>
-                                </constraints>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="Gei-Kn-XlZ" id="G4N-qd-VsN"/>
-                                </connections>
-                            </searchBar>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="BMs-yA-5gr" secondAttribute="trailing" constant="-16" id="E9z-TM-6rT"/>
-                            <constraint firstAttribute="centerX" secondItem="BMs-yA-5gr" secondAttribute="centerX" id="dvC-cE-m3u"/>
-                            <constraint firstItem="BMs-yA-5gr" firstAttribute="leading" secondItem="V65-pO-Ih7" secondAttribute="leadingMargin" constant="-16" id="wPx-Zc-2g1"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="searchDisplayController" destination="Gei-Kn-XlZ" id="1pM-vB-OV4"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="k1q-xA-YL3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="Gei-Kn-XlZ" customClass="GroceryItemSearchViewController" customModule="TKGroceryList" customModuleProvider="target">
-                    <connections>
-                        <outlet property="delegate" destination="636-nX-O0x" id="SCd-SJ-nKJ"/>
-                        <outlet property="searchBar" destination="BMs-yA-5gr" id="gOd-nE-QxY"/>
-                        <outlet property="searchContentsController" destination="636-nX-O0x" id="Aka-Zm-yUR"/>
-                        <outlet property="searchResultsDataSource" destination="636-nX-O0x" id="Kw1-b8-AKT"/>
-                        <outlet property="searchResultsDelegate" destination="636-nX-O0x" id="Lpc-Zy-E2B"/>
-                    </connections>
-                </searchDisplayController>
+                        <connections>
+                            <outlet property="dataSource" destination="ks1-Fj-9aQ" id="dyi-gN-khw"/>
+                            <outlet property="delegate" destination="ks1-Fj-9aQ" id="gIf-of-Iao"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kdc-bg-bLz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2847" y="-231"/>
+            <point key="canvasLocation" x="2801" y="-250"/>
         </scene>
     </scenes>
 </document>

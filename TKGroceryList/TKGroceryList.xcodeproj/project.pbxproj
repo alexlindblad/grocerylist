@@ -36,6 +36,10 @@
 		FA2DF2001A730028004FD44E /* GroceryItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2DF1FF1A730028004FD44E /* GroceryItemCell.swift */; };
 		FADB995C1A7393B50065143B /* AddGroceryListItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB995B1A7393B50065143B /* AddGroceryListItemViewController.swift */; };
 		FADB995E1A73943C0065143B /* GroceryItemSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB995D1A73943C0065143B /* GroceryItemSearchViewController.swift */; };
+		FADB99601A7615EB0065143B /* BaseAddGroceryItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB995F1A7615EB0065143B /* BaseAddGroceryItemTableViewController.swift */; };
+		FADB99621A7617840065143B /* GroceryItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FADB99611A7617840065143B /* GroceryItemCell.xib */; };
+		FADB99641A7618A30065143B /* GroceryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB99631A7618A30065143B /* GroceryItem.swift */; };
+		FADB99661A76192F0065143B /* GroceryListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB99651A76192F0065143B /* GroceryListItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +89,10 @@
 		FA2DF1FF1A730028004FD44E /* GroceryItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryItemCell.swift; sourceTree = "<group>"; };
 		FADB995B1A7393B50065143B /* AddGroceryListItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGroceryListItemViewController.swift; sourceTree = "<group>"; };
 		FADB995D1A73943C0065143B /* GroceryItemSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryItemSearchViewController.swift; sourceTree = "<group>"; };
+		FADB995F1A7615EB0065143B /* BaseAddGroceryItemTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseAddGroceryItemTableViewController.swift; sourceTree = "<group>"; };
+		FADB99611A7617840065143B /* GroceryItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroceryItemCell.xib; sourceTree = "<group>"; };
+		FADB99631A7618A30065143B /* GroceryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryItem.swift; sourceTree = "<group>"; };
+		FADB99651A76192F0065143B /* GroceryListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryListItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +158,7 @@
 				FA0E15F51A6F09DE0075B424 /* Main.storyboard */,
 				FA0E15F81A6F09DE0075B424 /* Images.xcassets */,
 				FA0E15FA1A6F09DE0075B424 /* LaunchScreen.xib */,
+				FADB99611A7617840065143B /* GroceryItemCell.xib */,
 				FA0E15EC1A6F09DE0075B424 /* Supporting Files */,
 				FA2DF1D21A70B2FC004FD44E /* TKGroceryList-Bridging-Header.h */,
 				FA2DF1D71A70B59A004FD44E /* Constants.swift */,
@@ -157,6 +166,9 @@
 				FA2DF1FF1A730028004FD44E /* GroceryItemCell.swift */,
 				FADB995B1A7393B50065143B /* AddGroceryListItemViewController.swift */,
 				FADB995D1A73943C0065143B /* GroceryItemSearchViewController.swift */,
+				FADB995F1A7615EB0065143B /* BaseAddGroceryItemTableViewController.swift */,
+				FADB99631A7618A30065143B /* GroceryItem.swift */,
+				FADB99651A76192F0065143B /* GroceryListItem.swift */,
 			);
 			path = TKGroceryList;
 			sourceTree = "<group>";
@@ -296,6 +308,7 @@
 			files = (
 				FA0E15F71A6F09DE0075B424 /* Main.storyboard in Resources */,
 				FA0E15FC1A6F09DE0075B424 /* LaunchScreen.xib in Resources */,
+				FADB99621A7617840065143B /* GroceryItemCell.xib in Resources */,
 				FA0E15F91A6F09DE0075B424 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,9 +343,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FADB99661A76192F0065143B /* GroceryListItem.swift in Sources */,
 				FADB995C1A7393B50065143B /* AddGroceryListItemViewController.swift in Sources */,
+				FADB99641A7618A30065143B /* GroceryItem.swift in Sources */,
 				FA2DF1FC1A71EAD0004FD44E /* GroceryListTableViewController.swift in Sources */,
 				FADB995E1A73943C0065143B /* GroceryItemSearchViewController.swift in Sources */,
+				FADB99601A7615EB0065143B /* BaseAddGroceryItemTableViewController.swift in Sources */,
 				FA2DF2001A730028004FD44E /* GroceryItemCell.swift in Sources */,
 				FA0E15F41A6F09DE0075B424 /* LoginViewController.swift in Sources */,
 				FA0E15EF1A6F09DE0075B424 /* AppDelegate.swift in Sources */,

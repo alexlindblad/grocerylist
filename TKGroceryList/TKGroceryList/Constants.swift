@@ -20,13 +20,18 @@ struct Constants {
         static let LogIn = "LoginViewController" as String
     }
 
+    struct Nib {
+        static let AddGroceryItemCell = "AddGroceryItemCell"
+    }
+
     struct Segue {
         static let MainView = "MainViewSegue" as String
         static let AddGroceryItem = "AddGroceryItemSegue" as String
     }
     
     struct CellReuseID {
-        static let GroceryItemCell = "GroceryItemCellID" as String
+        static let GroceryListItemCell = "GroceryListItemCellID" as String
+        static let GroceryItemCell = "addGroceryItemCellID"
     }
     
     struct Registration {
@@ -36,6 +41,7 @@ struct Constants {
     
     struct ObjectName {
         static let GroceryListItem = "GroceryListItem" as String
+        static let GroceryItem = "GroceryItem" as String
     }
     
     struct ObjectKey {

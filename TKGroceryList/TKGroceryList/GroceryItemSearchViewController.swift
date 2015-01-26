@@ -8,7 +8,7 @@
 
 import Foundation
 
-class GroceryItemSearchViewController : UISearchDisplayController, UISearchDisplayDelegate {
+class GroceryItemSearchViewController : UISearchController, UISearchControllerDelegate {
 
 
 }
