@@ -88,10 +88,60 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Item" id="dGO-Vu-zdN"/>
                     <navigationItem key="navigationItem" title="Grocery List" id="3X1-QR-gII"/>
+                    <connections>
+                        <segue destination="636-nX-O0x" kind="show" identifier="AddGroceryItemSegue" id="zF2-70-SXV"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aFd-p7-XcP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1881" y="-225"/>
+        </scene>
+        <!--Add Grocery List Item View Controller-->
+        <scene sceneID="urM-6e-GT8">
+            <objects>
+                <viewController id="636-nX-O0x" customClass="AddGroceryListItemViewController" customModule="TKGroceryList" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Nvz-FB-iH6"/>
+                        <viewControllerLayoutGuide type="bottom" id="amr-4D-Hzx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="V65-pO-Ih7">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BMs-yA-5gr">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="lyp-cr-kcZ"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Gei-Kn-XlZ" id="G4N-qd-VsN"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="BMs-yA-5gr" secondAttribute="trailing" constant="-16" id="E9z-TM-6rT"/>
+                            <constraint firstAttribute="centerX" secondItem="BMs-yA-5gr" secondAttribute="centerX" id="dvC-cE-m3u"/>
+                            <constraint firstItem="BMs-yA-5gr" firstAttribute="leading" secondItem="V65-pO-Ih7" secondAttribute="leadingMargin" constant="-16" id="wPx-Zc-2g1"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="Gei-Kn-XlZ" id="1pM-vB-OV4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k1q-xA-YL3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="Gei-Kn-XlZ" customClass="GroceryItemSearchViewController" customModule="TKGroceryList" customModuleProvider="target">
+                    <connections>
+                        <outlet property="delegate" destination="636-nX-O0x" id="SCd-SJ-nKJ"/>
+                        <outlet property="searchBar" destination="BMs-yA-5gr" id="gOd-nE-QxY"/>
+                        <outlet property="searchContentsController" destination="636-nX-O0x" id="Aka-Zm-yUR"/>
+                        <outlet property="searchResultsDataSource" destination="636-nX-O0x" id="Kw1-b8-AKT"/>
+                        <outlet property="searchResultsDelegate" destination="636-nX-O0x" id="Lpc-Zy-E2B"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="2847" y="-231"/>
         </scene>
     </scenes>
 </document>

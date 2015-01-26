@@ -22,6 +22,7 @@ struct Constants {
 
     struct Segue {
         static let MainView = "MainViewSegue" as String
+        static let AddGroceryItem = "AddGroceryItemSegue" as String
     }
     
     struct CellReuseID {

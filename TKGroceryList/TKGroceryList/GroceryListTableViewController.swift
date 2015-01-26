@@ -74,7 +74,7 @@ class GroceryListTableViewController: PFQueryTableViewController, UIActionSheetD
     }
     
     func plusButtonTouched() -> Void {
-        NSLog("Plust button touched")
+        self.performSegueWithIdentifier(Constants.Segue.AddGroceryItem, sender: self)
     }
     
     // MARK: UIActionSheetDelegate methods
