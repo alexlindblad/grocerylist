@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -51,7 +51,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroceryListItemCellID" rowHeight="60" id="XjE-k4-de9" customClass="GroceryItemCell" customModule="TKGroceryList" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroceryListItemCellID" rowHeight="60" id="XjE-k4-de9" customClass="GroceryListItemCell" customModule="TKGroceryList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XjE-k4-de9" id="n0K-8k-yHU">
@@ -76,8 +76,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="itemName" destination="38b-cx-XLm" id="xrA-hZ-Onb"/>
-                                    <outlet property="quantityLabel" destination="bxL-Vn-mat" id="tHL-ir-FEw"/>
+                                    <outlet property="itemName" destination="38b-cx-XLm" id="35V-VR-ppl"/>
+                                    <outlet property="quantityLabel" destination="bxL-Vn-mat" id="DNY-b0-fK5"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -94,19 +94,19 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aFd-p7-XcP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2036" y="-225"/>
+            <point key="canvasLocation" x="1805" y="-275"/>
         </scene>
         <!--Add Item-->
         <scene sceneID="P2R-an-Kqk">
             <objects>
-                <tableViewController title="Add Item" id="ks1-Fj-9aQ" sceneMemberID="viewController">
+                <tableViewController title="Add Item" id="ks1-Fj-9aQ" customClass="AddGroceryListItemViewController" customModule="TKGroceryList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="8W1-VF-foO">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <connections>
-                            <outlet property="dataSource" destination="ks1-Fj-9aQ" id="dyi-gN-khw"/>
-                            <outlet property="delegate" destination="ks1-Fj-9aQ" id="gIf-of-Iao"/>
+                            <outlet property="dataSource" destination="ks1-Fj-9aQ" id="KnN-i7-2la"/>
+                            <outlet property="delegate" destination="ks1-Fj-9aQ" id="15f-Z7-C8a"/>
                         </connections>
                     </tableView>
                 </tableViewController>

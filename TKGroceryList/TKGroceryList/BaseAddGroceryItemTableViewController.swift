@@ -18,13 +18,13 @@ class BaseAddGroceryItemTableViewController: UITableViewController {
         let nib = UINib(nibName: Constants.Nib.AddGroceryItemCell, bundle: nil)
         
         // Required if our subclasses are to use: dequeueReusableCellWithIdentifier:forIndexPath:
-        tableView.registerNib(nib, forCellReuseIdentifier: Constants.CellReuseID.GroceryListItemCell)
+        tableView.registerNib(nib, forCellReuseIdentifier: Constants.CellReuseID.GroceryItemCell)
     }
     
     // MARK:
     
-    func configureCell(cell: UITableViewCell, forGroceryItem item: GroceryItem) {
-        cell.textLabel?.text = "" //item.name
-        
+    func configureCell(cell: GroceryItemCell, forGroceryItem item: GroceryItem) {
+        cell.itemName?.text = item.name
+        cell.location?.text = item.location
     }
 }

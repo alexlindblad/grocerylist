@@ -46,7 +46,7 @@ class GroceryListTableViewController: PFQueryTableViewController, UIActionSheetD
         var cellIdentifier = Constants.CellReuseID.GroceryListItemCell
         var listItem = object as GroceryListItem
         
-        var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as GroceryItemCell
+        var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as GroceryListItemCell
      
         // Configure the cell
         var groceryItem = listItem.item
@@ -56,7 +56,7 @@ class GroceryListTableViewController: PFQueryTableViewController, UIActionSheetD
         groceryItem.fetchIfNeededInBackgroundWithBlock { (object, error) -> Void in
             var groceryItem = object as GroceryItem
             dispatch_async(dispatch_get_main_queue()) {
-                if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) as GroceryItemCell? {
+                if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) as GroceryListItemCell? {
                     cellToUpdate.itemName?.text = groceryItem.name as NSString
                 }
             }

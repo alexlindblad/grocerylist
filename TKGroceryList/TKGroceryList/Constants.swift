@@ -21,7 +21,7 @@ struct Constants {
     }
 
     struct Nib {
-        static let AddGroceryItemCell = "AddGroceryItemCell"
+        static let AddGroceryItemCell = "GroceryItemCell"
     }
 
     struct Segue {
@@ -31,7 +31,7 @@ struct Constants {
     
     struct CellReuseID {
         static let GroceryListItemCell = "GroceryListItemCellID" as String
-        static let GroceryItemCell = "addGroceryItemCellID"
+        static let GroceryItemCell = "GroceryItemCellID"
     }
     
     struct Registration {
