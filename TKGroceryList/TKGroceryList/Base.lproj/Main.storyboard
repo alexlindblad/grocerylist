@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -113,6 +114,94 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kdc-bg-bLz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2801" y="-250"/>
+        </scene>
+        <!--Confirm Add Grocery List Item View Controller-->
+        <scene sceneID="ldS-ee-9xs">
+            <objects>
+                <viewController storyboardIdentifier="ConfirmAddGroceryListItemID" id="aJk-uh-yaf" customClass="ConfirmAddGroceryListItemViewController" customModule="TKGroceryList" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PaV-JS-mXh"/>
+                        <viewControllerLayoutGuide type="bottom" id="i2o-4J-YVZ"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" alpha="0.20000000000000001" contentMode="scaleToFill" id="ifk-Qz-Nok">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.39999999999999963" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zWc-XA-ogH">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0RM-Ka-m6d">
+                                <rect key="frame" x="130" y="214" width="297" height="147"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Item" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4d-Oh-C9I">
+                                        <rect key="frame" x="0.0" y="10" width="297" height="44"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hTB-8C-a3U">
+                                        <rect key="frame" x="109" y="59" width="50" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Xwj-GN-TwM">
+                                        <rect key="frame" x="7" y="59" width="94" height="29"/>
+                                        <connections>
+                                            <action selector="valueChanged:" destination="aJk-uh-yaf" eventType="valueChanged" id="2bp-dQ-0En"/>
+                                        </connections>
+                                    </stepper>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o4s-hs-hSo">
+                                        <rect key="frame" x="167" y="59" width="120" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSX-zD-cbO">
+                                        <rect key="frame" x="158" y="97" width="139" height="30"/>
+                                        <state key="normal" title="Add">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addItem:" destination="aJk-uh-yaf" eventType="touchUpInside" id="glf-3m-wXS"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="itc-fQ-zD6">
+                                        <rect key="frame" x="0.0" y="97" width="159" height="30"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="cancel:" destination="aJk-uh-yaf" eventType="touchUpInside" id="CGc-ca-2ay"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="0RM-Ka-m6d" secondAttribute="height" multiplier="99:49" id="qDx-0I-Rth"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zWc-XA-ogH" firstAttribute="top" secondItem="PaV-JS-mXh" secondAttribute="bottom" id="427-hT-UmQ"/>
+                            <constraint firstItem="i2o-4J-YVZ" firstAttribute="top" secondItem="zWc-XA-ogH" secondAttribute="bottom" id="A6s-vc-j36"/>
+                            <constraint firstAttribute="centerX" secondItem="0RM-Ka-m6d" secondAttribute="centerX" id="EXV-kp-0CO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zWc-XA-ogH" secondAttribute="trailing" constant="-16" id="Ko0-z5-eZD"/>
+                            <constraint firstAttribute="centerY" secondItem="0RM-Ka-m6d" secondAttribute="centerY" id="PWC-Kf-LDS"/>
+                            <constraint firstItem="zWc-XA-ogH" firstAttribute="leading" secondItem="ifk-Qz-Nok" secondAttribute="leadingMargin" constant="-16" id="rRF-cV-QI6"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="itemLabel" destination="e4d-Oh-C9I" id="6PJ-Ss-RJ0"/>
+                        <outlet property="quantityTextField" destination="hTB-8C-a3U" id="jxX-Pb-CXy"/>
+                        <outlet property="unitOfMeasureTextField" destination="o4s-hs-hSo" id="fFv-nz-Doq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wdu-CV-flt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3475" y="-260"/>
         </scene>
     </scenes>
 </document>

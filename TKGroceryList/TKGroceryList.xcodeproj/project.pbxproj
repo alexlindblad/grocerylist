@@ -35,6 +35,7 @@
 		FA2DF1FC1A71EAD0004FD44E /* GroceryListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2DF1FB1A71EAD0004FD44E /* GroceryListTableViewController.swift */; };
 		FA2DF2001A730028004FD44E /* GroceryListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2DF1FF1A730028004FD44E /* GroceryListItemCell.swift */; };
 		FAB6FA8D1A788CCA00E65F7D /* GroceryItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6FA8C1A788CCA00E65F7D /* GroceryItemCell.swift */; };
+		FAB6FA941A78CADE00E65F7D /* ConfirmAddGroceryListItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6FA931A78CADE00E65F7D /* ConfirmAddGroceryListItemViewController.swift */; };
 		FADB995C1A7393B50065143B /* AddGroceryListItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB995B1A7393B50065143B /* AddGroceryListItemViewController.swift */; };
 		FADB995E1A73943C0065143B /* GroceryItemSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB995D1A73943C0065143B /* GroceryItemSearchViewController.swift */; };
 		FADB99601A7615EB0065143B /* BaseAddGroceryItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB995F1A7615EB0065143B /* BaseAddGroceryItemTableViewController.swift */; };
@@ -89,6 +90,7 @@
 		FA2DF1FB1A71EAD0004FD44E /* GroceryListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryListTableViewController.swift; sourceTree = "<group>"; };
 		FA2DF1FF1A730028004FD44E /* GroceryListItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryListItemCell.swift; sourceTree = "<group>"; };
 		FAB6FA8C1A788CCA00E65F7D /* GroceryItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryItemCell.swift; sourceTree = "<group>"; };
+		FAB6FA931A78CADE00E65F7D /* ConfirmAddGroceryListItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmAddGroceryListItemViewController.swift; sourceTree = "<group>"; };
 		FADB995B1A7393B50065143B /* AddGroceryListItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGroceryListItemViewController.swift; sourceTree = "<group>"; };
 		FADB995D1A73943C0065143B /* GroceryItemSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryItemSearchViewController.swift; sourceTree = "<group>"; };
 		FADB995F1A7615EB0065143B /* BaseAddGroceryItemTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseAddGroceryItemTableViewController.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 				FADB995B1A7393B50065143B /* AddGroceryListItemViewController.swift */,
 				FADB995D1A73943C0065143B /* GroceryItemSearchViewController.swift */,
 				FADB995F1A7615EB0065143B /* BaseAddGroceryItemTableViewController.swift */,
+				FAB6FA931A78CADE00E65F7D /* ConfirmAddGroceryListItemViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				FADB995E1A73943C0065143B /* GroceryItemSearchViewController.swift in Sources */,
 				FADB99601A7615EB0065143B /* BaseAddGroceryItemTableViewController.swift in Sources */,
 				FA2DF2001A730028004FD44E /* GroceryListItemCell.swift in Sources */,
+				FAB6FA941A78CADE00E65F7D /* ConfirmAddGroceryListItemViewController.swift in Sources */,
 				FA0E15F41A6F09DE0075B424 /* LoginViewController.swift in Sources */,
 				FA0E15EF1A6F09DE0075B424 /* AppDelegate.swift in Sources */,
 				FA2DF1D81A70B59A004FD44E /* Constants.swift in Sources */,

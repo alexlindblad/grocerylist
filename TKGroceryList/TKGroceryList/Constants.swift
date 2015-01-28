@@ -18,6 +18,7 @@ struct Constants {
     struct StoryBoardID {
         static let MainSBName = "Main" as String
         static let LogIn = "LoginViewController" as String
+        static let ConfirmAddListItem = "ConfirmAddGroceryListItemID" as String
     }
 
     struct Nib {

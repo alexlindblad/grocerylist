@@ -193,25 +193,26 @@ class AddGroceryListItemViewController: BaseAddGroceryItemTableViewController, U
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-/*
-        var selectedProduct: Product
+
+        var selectedItem: GroceryItem
         
         // Check to see which table view cell was selected.
         if tableView == self.tableView {
-            selectedProduct = products[indexPath.row]
+            selectedItem = products[indexPath.row]
         }
         else {
-            selectedProduct = resultsTableController.filteredProducts[indexPath.row]
+            selectedItem = resultsTableController.filteredProducts[indexPath.row]
         }
 
         // Set up the detail view controller to show.
-        let detailViewController = DetailViewController.forProduct(selectedProduct)
+        let confirmAddController = ConfirmAddGroceryListItemViewController.forItem(selectedItem)
         
         // Note: Should not be necessary but current iOS 8.0 bug requires it.
         tableView.deselectRowAtIndexPath(tableView.indexPathForSelectedRow()!, animated: false)
-        
-        navigationController?.pushViewController(detailViewController, animated: true)
-*/
+        confirmAddController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+        confirmAddController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
+        presentViewController(confirmAddController, animated: true, completion: nil)
+    
     }
     
     // MARK: UIStateRestoration
