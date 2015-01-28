@@ -155,23 +155,15 @@
 		FA0E15EB1A6F09DE0075B424 /* TKGroceryList */ = {
 			isa = PBXGroup;
 			children = (
+				FAB6FA921A7891BF00E65F7D /* Cells */,
+				FAB6FA911A78915B00E65F7D /* Model */,
+				FAB6FA8F1A78911300E65F7D /* Xibs */,
+				FAB6FA8E1A7890E500E65F7D /* ViewControllers */,
 				FA0E15EE1A6F09DE0075B424 /* AppDelegate.swift */,
-				FA0E15F31A6F09DE0075B424 /* LoginViewController.swift */,
-				FA0E15F51A6F09DE0075B424 /* Main.storyboard */,
 				FA0E15F81A6F09DE0075B424 /* Images.xcassets */,
-				FA0E15FA1A6F09DE0075B424 /* LaunchScreen.xib */,
-				FADB99611A7617840065143B /* GroceryItemCell.xib */,
 				FA0E15EC1A6F09DE0075B424 /* Supporting Files */,
 				FA2DF1D21A70B2FC004FD44E /* TKGroceryList-Bridging-Header.h */,
 				FA2DF1D71A70B59A004FD44E /* Constants.swift */,
-				FA2DF1FB1A71EAD0004FD44E /* GroceryListTableViewController.swift */,
-				FA2DF1FF1A730028004FD44E /* GroceryListItemCell.swift */,
-				FADB995B1A7393B50065143B /* AddGroceryListItemViewController.swift */,
-				FADB995D1A73943C0065143B /* GroceryItemSearchViewController.swift */,
-				FADB995F1A7615EB0065143B /* BaseAddGroceryItemTableViewController.swift */,
-				FADB99631A7618A30065143B /* GroceryItem.swift */,
-				FADB99651A76192F0065143B /* GroceryListItem.swift */,
-				FAB6FA8C1A788CCA00E65F7D /* GroceryItemCell.swift */,
 			);
 			path = TKGroceryList;
 			sourceTree = "<group>";
@@ -226,6 +218,46 @@
 				FA2DF1BB1A70B1C5004FD44E /* AudioToolbox.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FAB6FA8E1A7890E500E65F7D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FA0E15F31A6F09DE0075B424 /* LoginViewController.swift */,
+				FA2DF1FB1A71EAD0004FD44E /* GroceryListTableViewController.swift */,
+				FADB995B1A7393B50065143B /* AddGroceryListItemViewController.swift */,
+				FADB995D1A73943C0065143B /* GroceryItemSearchViewController.swift */,
+				FADB995F1A7615EB0065143B /* BaseAddGroceryItemTableViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FAB6FA8F1A78911300E65F7D /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				FA0E15FA1A6F09DE0075B424 /* LaunchScreen.xib */,
+				FADB99611A7617840065143B /* GroceryItemCell.xib */,
+				FA0E15F51A6F09DE0075B424 /* Main.storyboard */,
+			);
+			name = Xibs;
+			sourceTree = "<group>";
+		};
+		FAB6FA911A78915B00E65F7D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FADB99631A7618A30065143B /* GroceryItem.swift */,
+				FADB99651A76192F0065143B /* GroceryListItem.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		FAB6FA921A7891BF00E65F7D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FAB6FA8C1A788CCA00E65F7D /* GroceryItemCell.swift */,
+				FA2DF1FF1A730028004FD44E /* GroceryListItemCell.swift */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
