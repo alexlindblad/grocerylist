@@ -156,7 +156,7 @@ class AddGroceryListItemViewController: BaseAddGroceryItemTableViewController, U
             // `location` field matching.
             lhs = NSExpression(forKeyPath: Constants.GroceryItemKey.Location)
             rhs = NSExpression(forConstantValue: searchString)
-            finalPredicate = NSComparisonPredicate( leftExpression: lhs, rightExpression: rhs, modifier: .DirectPredicateModifier, type: .EqualToPredicateOperatorType, options: .CaseInsensitivePredicateOption)
+            finalPredicate = NSComparisonPredicate( leftExpression: lhs, rightExpression: rhs, modifier: .DirectPredicateModifier, type: .ContainsPredicateOperatorType, options: .CaseInsensitivePredicateOption)
 
             searchItemsPredicate.append(finalPredicate)
             
