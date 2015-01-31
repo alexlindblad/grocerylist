@@ -21,7 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GroceryListItem.load()
         Parse.setApplicationId(Constants.Parse.AppID, clientKey: Constants.Parse.Key)
         PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions, block: nil)
-
+        
+        // causes the configuration to load
+        ConfigurationManager.manager
+        
         return true
     }
 

@@ -76,4 +76,9 @@ struct Constants {
         static let Logout = "Logout" as String
         static let LogoutIndex = 0 as Int
     }
+    
+    struct Configuration {
+        static let StoreLocation = "storeLocation" as String
+        static let UnitsOfMeasure = "unitsOfMeasure" as String
+    }
 }
