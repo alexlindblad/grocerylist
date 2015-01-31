@@ -11,7 +11,7 @@ import Foundation
 class GroceryListItem : PFObject, PFSubclassing {
 
     @NSManaged var item : GroceryItem
-    @NSManaged var quantity : NSString
+    @NSManaged var quantity : NSNumber
     @NSManaged var unitOfMeasure : NSString
 
     override class func load() {

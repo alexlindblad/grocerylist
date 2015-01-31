@@ -25,6 +25,10 @@ class GroceryListTableViewController: PFQueryTableViewController, UIActionSheetD
         self.navigationItem.rightBarButtonItems = [menuBarButton, plusBarButton]
     }
     
+    override func viewWillAppear(animated: Bool) {
+        self.loadObjects()
+    }
+    
     override func queryForTable() -> PFQuery {
         var query = GroceryListItem.query()
      

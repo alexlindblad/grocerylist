@@ -15,6 +15,7 @@ class ConfirmAddGroceryListItemViewController : UIViewController {
     @IBOutlet weak var unitOfMeasureTextField: UITextField!
     
     var item: GroceryItem!
+    var quantity = 1 as NSNumber!
     
     class func forItem(item: GroceryItem) -> ConfirmAddGroceryListItemViewController {
         let storyboard = UIStoryboard(name: Constants.StoryBoardID.MainSBName, bundle: nil)
@@ -34,11 +35,17 @@ class ConfirmAddGroceryListItemViewController : UIViewController {
     }
     
     @IBAction func valueChanged(sender: UIStepper) {
-        quantityTextField.text = String(format:"%.0f", sender.value)
+        self.quantity = NSNumber(double:sender.value)
+        quantityTextField.text = String(format:"%d", quantity.integerValue)
     }
     
     @IBAction func addItem(sender: AnyObject) {
-    
+        var groceryListItem = GroceryListItem()
+        groceryListItem.item = item
+        groceryListItem.quantity = quantity
+        groceryListItem.unitOfMeasure = unitOfMeasureTextField.text
+        groceryListItem.saveEventually()
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func cancel(sender: AnyObject) {

@@ -131,8 +131,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0RM-Ka-m6d">
-                                <rect key="frame" x="130" y="214" width="297" height="147"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0RM-Ka-m6d">
+                                <rect key="frame" x="130" y="214" width="297" height="146.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Item" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4d-Oh-C9I">
                                         <rect key="frame" x="0.0" y="10" width="297" height="44"/>
@@ -141,18 +141,18 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hTB-8C-a3U">
-                                        <rect key="frame" x="109" y="59" width="50" height="30"/>
+                                        <rect key="frame" x="109" y="58.5" width="50" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Xwj-GN-TwM">
-                                        <rect key="frame" x="7" y="59" width="94" height="29"/>
+                                        <rect key="frame" x="7" y="58.5" width="94" height="29"/>
                                         <connections>
                                             <action selector="valueChanged:" destination="aJk-uh-yaf" eventType="valueChanged" id="2bp-dQ-0En"/>
                                         </connections>
                                     </stepper>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o4s-hs-hSo">
-                                        <rect key="frame" x="167" y="59" width="120" height="30"/>
+                                        <rect key="frame" x="167" y="58.5" width="120" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -166,7 +166,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="itc-fQ-zD6">
-                                        <rect key="frame" x="0.0" y="97" width="159" height="30"/>
+                                        <rect key="frame" x="0.0" y="96.5" width="159" height="30"/>
                                         <state key="normal" title="Cancel"/>
                                         <connections>
                                             <action selector="cancel:" destination="aJk-uh-yaf" eventType="touchUpInside" id="CGc-ca-2ay"/>
