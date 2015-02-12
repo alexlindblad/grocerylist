@@ -12,7 +12,6 @@ class ConfirmAddGroceryListItemViewController : UIViewController {
 
     @IBOutlet weak var quantityTextField: UITextField!
     @IBOutlet weak var itemLabel: UILabel!
-    @IBOutlet weak var unitOfMeasureTextField: UITextField!
     
     var item: GroceryItem!
     var quantity = 1 as NSNumber!
@@ -43,7 +42,7 @@ class ConfirmAddGroceryListItemViewController : UIViewController {
         var groceryListItem = GroceryListItem()
         groceryListItem.item = item
         groceryListItem.quantity = quantity
-        groceryListItem.unitOfMeasure = unitOfMeasureTextField.text
+        groceryListItem.unitOfMeasure = ""
         groceryListItem.saveEventually()
         self.dismissViewControllerAnimated(true, completion: nil)
     }
