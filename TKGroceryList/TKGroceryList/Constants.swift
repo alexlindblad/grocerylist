@@ -18,14 +18,21 @@ struct Constants {
     struct StoryBoardID {
         static let MainSBName = "Main" as String
         static let LogIn = "LoginViewController" as String
+        static let ConfirmAddListItem = "ConfirmAddGroceryListItemID" as String
+    }
+
+    struct Nib {
+        static let AddGroceryItemCell = "GroceryItemCell"
     }
 
     struct Segue {
         static let MainView = "MainViewSegue" as String
+        static let AddGroceryItem = "AddGroceryItemSegue" as String
     }
     
     struct CellReuseID {
-        static let GroceryItemCell = "GroceryItemCellID" as String
+        static let GroceryListItemCell = "GroceryListItemCellID" as String
+        static let GroceryItemCell = "GroceryItemCellID"
     }
     
     struct Registration {
@@ -35,6 +42,7 @@ struct Constants {
     
     struct ObjectName {
         static let GroceryListItem = "GroceryListItem" as String
+        static let GroceryItem = "GroceryItem" as String
     }
     
     struct ObjectKey {
@@ -51,11 +59,7 @@ struct Constants {
     struct GroceryListItemKey {
         static let Item = "item" as String
         static let Quantity = "quantity" as String
-    }
-    
-    struct QuantityKey {
-        static let Value = "value" as String
-        static let Type = "type" as String
+        static let Units = "unitOfMeasure" as String
     }
     
     struct StoreLocationKey {
@@ -71,5 +75,10 @@ struct Constants {
         static let Cancel = "Cancel" as String
         static let Logout = "Logout" as String
         static let LogoutIndex = 0 as Int
+    }
+    
+    struct Configuration {
+        static let StoreLocation = "storeLocation" as String
+        static let UnitsOfMeasure = "unitsOfMeasure" as String
     }
 }

@@ -21,11 +21,16 @@ class GroceryListTableViewController: PFQueryTableViewController, UIActionSheetD
         self.paginationEnabled = false
         
         var menuBarButton = UIBarButtonItem(image: UIImage(named: Constants.Image.MoreMenu), style: UIBarButtonItemStyle.Plain, target: self, action: "moreMenuTouched");
-        self.navigationItem.rightBarButtonItem = menuBarButton
+        var plusBarButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "plusButtonTouched")
+        self.navigationItem.rightBarButtonItems = [menuBarButton, plusBarButton]
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.loadObjects()
     }
     
     override func queryForTable() -> PFQuery {
-        var query = PFQuery(className: self.parseClassName) as PFQuery
+        var query = GroceryListItem.query()
      
         // If no objects are loaded in memory, we look to the cache first to fill the table
         // and then subsequently do a query against the network.
@@ -42,24 +47,21 @@ class GroceryListTableViewController: PFQueryTableViewController, UIActionSheetD
             cellForRowAtIndexPath indexPath: NSIndexPath,
             object: PFObject) -> PFTableViewCell {
             
-        var cellIdentifier = Constants.CellReuseID.GroceryItemCell
+        var cellIdentifier = Constants.CellReuseID.GroceryListItemCell
+        var listItem = object as GroceryListItem
         
-        var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as GroceryItemCell
+        var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as GroceryListItemCell
      
         // Configure the cell
-        var groceryItem = object[Constants.GroceryListItemKey.Item] as PFObject
-        var quantity = object[Constants.GroceryListItemKey.Quantity] as PFObject
-        groceryItem.fetchIfNeededInBackgroundWithBlock { (item, error) -> Void in
-            var name = groceryItem[Constants.GroceryItemKey.Name] as NSString!
+        var groceryItem = listItem.item
 
-            quantity.fetchIfNeededInBackgroundWithBlock { (qty, error) -> Void in
-                var num = qty[Constants.QuantityKey.Value] as NSNumber!
-                var type = qty[Constants.QuantityKey.Type] as NSString!
-                dispatch_async(dispatch_get_main_queue()) {
-                    if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) as GroceryItemCell? {
-                        cellToUpdate.quantityLabel?.text = String(format: "%@ %@", num, type)
-                        cellToUpdate.itemName?.text = item[Constants.GroceryItemKey.Name] as NSString
-                    }
+        cell.quantityLabel?.text = String(format: "%@ %@", listItem.quantity, listItem.unitOfMeasure)
+
+        groceryItem.fetchIfNeededInBackgroundWithBlock { (object, error) -> Void in
+            var groceryItem = object as GroceryItem
+            dispatch_async(dispatch_get_main_queue()) {
+                if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) as GroceryListItemCell? {
+                    cellToUpdate.itemName?.text = groceryItem.name as NSString
                 }
             }
         }
@@ -67,10 +69,15 @@ class GroceryListTableViewController: PFQueryTableViewController, UIActionSheetD
         return cell
     }
     
+    // MARK: internal methods
     func moreMenuTouched() -> Void {
         var actionSheet = UIActionSheet(title: Constants.ActionSheet.Title, delegate: self, cancelButtonTitle: Constants.ActionSheet.Cancel, destructiveButtonTitle: Constants.ActionSheet.Logout) as UIActionSheet
         actionSheet.actionSheetStyle = UIActionSheetStyle.BlackTranslucent
         actionSheet.showInView(self.view)
+    }
+    
+    func plusButtonTouched() -> Void {
+        self.performSegueWithIdentifier(Constants.Segue.AddGroceryItem, sender: self)
     }
     
     // MARK: UIActionSheetDelegate methods

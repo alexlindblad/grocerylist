@@ -17,9 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         ParseCrashReporting.enable()
+        GroceryItem.load()
+        GroceryListItem.load()
         Parse.setApplicationId(Constants.Parse.AppID, clientKey: Constants.Parse.Key)
         PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions, block: nil)
-
+        
+        // causes the configuration to load
+        ConfigurationManager.manager
+        
         return true
     }
 
