@@ -17,4 +17,8 @@ class GroceryListItemCell : PFTableViewCell {
         super.init(coder: aDecoder)
     }
     
+    override func prepareForReuse() {
+        itemName.text = ""
+        quantityLabel.text = ""
+    }
 }
