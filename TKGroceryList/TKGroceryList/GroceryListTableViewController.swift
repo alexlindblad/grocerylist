@@ -28,7 +28,7 @@ class GroceryListTableViewController: PFQueryTableViewController, UIActionSheetD
     override func viewWillAppear(animated: Bool) {
         self.loadObjects()
     }
-    
+    // MARK: data methods
     override func queryForTable() -> PFQuery {
         var query = GroceryListItem.query()
      
@@ -56,7 +56,7 @@ class GroceryListTableViewController: PFQueryTableViewController, UIActionSheetD
         var groceryItem = listItem.item
 
         cell.quantityLabel?.text = String(format: "%@ %@", listItem.quantity, listItem.unitOfMeasure)
-
+        
         groceryItem.fetchIfNeededInBackgroundWithBlock { (object, error) -> Void in
             var groceryItem = object as GroceryItem
             dispatch_async(dispatch_get_main_queue()) {
@@ -84,6 +84,20 @@ class GroceryListTableViewController: PFQueryTableViewController, UIActionSheetD
     func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
         if (buttonIndex == Constants.ActionSheet.LogoutIndex) {
             AppDelegate.getAppDelegate().logOut()
+        }
+    }
+    
+    // MARK: table view edit methods
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        // all rows are editable
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            self.objectAtIndexPath(indexPath).deleteInBackgroundWithBlock {(succeeded, error) -> Void in
+                self.loadObjects()
+            }
         }
     }
 }
