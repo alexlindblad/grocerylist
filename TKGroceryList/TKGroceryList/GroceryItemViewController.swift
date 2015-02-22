@@ -13,6 +13,7 @@ class GroceryItemViewController : UIViewController {
     @IBOutlet weak var itemNameTextField: UITextField!
     @IBOutlet weak var itemLocationTextField: UITextField!
     var itemName: String!
+    var parent: UIViewControllerProtocol!
     
     class func forItemName(itemName: String) -> GroceryItemViewController {
         let storyboard = UIStoryboard(name: Constants.StoryBoardID.MainSBName, bundle: nil)
@@ -29,8 +30,16 @@ class GroceryItemViewController : UIViewController {
     }
     
     func onSave(sender: UIBarButtonItem) -> Void {
-    
-        //TODO: Create new GroceryItem, return and show add GroceryListItem VC
-        self.navigationController?.popViewControllerAnimated(true)
+        var newItem = GroceryItem()
+        newItem.name = itemNameTextField.text
+        newItem.location = itemLocationTextField.text
+        newItem.saveInBackgroundWithBlock() {(success, error) -> Void in
+            dispatch_async(dispatch_get_main_queue(), {
+                self.navigationController?.popViewControllerAnimated(true)
+                if self.parent != nil {
+                    self.parent.returningToViewController()
+                }
+            })
+        }
     }
 }

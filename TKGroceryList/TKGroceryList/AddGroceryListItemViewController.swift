@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddGroceryListItemViewController: BaseAddGroceryItemTableViewController, UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating {
+class AddGroceryListItemViewController: BaseAddGroceryItemTableViewController, UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating, UIViewControllerProtocol {
     // MARK: Types
     
     struct RestorationKeys {
@@ -53,6 +53,8 @@ class AddGroceryListItemViewController: BaseAddGroceryItemTableViewController, U
         searchController = UISearchController(searchResultsController: resultsTableController)
         searchController.searchResultsUpdater = self
         searchController.searchBar.sizeToFit()
+        searchController.searchBar.autocapitalizationType = UITextAutocapitalizationType.None
+
         tableView.tableHeaderView = searchController.searchBar
 
         searchController.delegate = self
@@ -63,16 +65,8 @@ class AddGroceryListItemViewController: BaseAddGroceryItemTableViewController, U
         // presentation semantics apply. Namely that presentation will walk up the view controller
         // hierarchy until it finds the root view controller or one that defines a presentation context.
         definesPresentationContext = true
-        
-        var query = GroceryItem.query()
-        query.findObjectsInBackgroundWithBlock({(objects, error) -> Void in
-            if error == nil {
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.products = objects as [GroceryItem]!
-                    self.tableView.reloadData()
-                });
-            }
-        })
+
+        loadObjects()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -87,6 +81,30 @@ class AddGroceryListItemViewController: BaseAddGroceryItemTableViewController, U
                 searchController.searchBar.becomeFirstResponder()
                 restoredState.wasFirstResponder = false
             }
+        }
+    }
+    
+    func loadObjects() {
+        var query = GroceryItem.query()
+        query.orderByAscending(Constants.GroceryItemKey.Name)
+        query.findObjectsInBackgroundWithBlock({(objects, error) -> Void in
+            if error == nil {
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.products = objects as [GroceryItem]!
+                    self.tableView.reloadData()
+                });
+            }
+        })
+    }
+    
+    func returningToViewController() {
+        var query = GroceryItem.query() as PFQuery
+        query.orderByAscending("createdAt")
+        query.getFirstObjectInBackgroundWithBlock() {(object, error) -> Void in
+            dispatch_async(dispatch_get_main_queue(), {
+                self.loadObjects()
+                self.searchController.searchResultsController?.dismissViewControllerAnimated(true, completion: nil)
+            })
         }
     }
     
@@ -205,6 +223,7 @@ class AddGroceryListItemViewController: BaseAddGroceryItemTableViewController, U
             // ADD NEW ITEM
             if indexPath.row == 0 {
                 let viewController = GroceryItemViewController.forItemName(searchController.searchBar.text)
+                viewController.parent = self
                 self.navigationController?.pushViewController(viewController, animated: true)
                 return
             }
