@@ -54,6 +54,7 @@ class AddGroceryListItemViewController: BaseAddGroceryItemTableViewController, U
         searchController.searchResultsUpdater = self
         searchController.searchBar.sizeToFit()
         searchController.searchBar.autocapitalizationType = UITextAutocapitalizationType.None
+        searchController.searchBar.placeholder = "Search/Add"
 
         tableView.tableHeaderView = searchController.searchBar
 
@@ -103,6 +104,7 @@ class AddGroceryListItemViewController: BaseAddGroceryItemTableViewController, U
         query.getFirstObjectInBackgroundWithBlock() {(object, error) -> Void in
             dispatch_async(dispatch_get_main_queue(), {
                 self.loadObjects()
+                self.searchController.searchBar.text = ""
                 self.searchController.searchResultsController?.dismissViewControllerAnimated(true, completion: nil)
                 self.presentAddGroceryListItemViewControllerForGroceryItem(object as GroceryItem)
             })
