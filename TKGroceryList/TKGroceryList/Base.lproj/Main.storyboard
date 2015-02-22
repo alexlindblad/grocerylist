@@ -125,8 +125,48 @@
                     <view key="view" contentMode="scaleToFill" id="YEF-kM-0gb">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Name: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LB4-or-sNC">
+                                <rect key="frame" x="16" y="45" width="94" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Location: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9jw-zI-Z7z">
+                                <rect key="frame" x="16" y="83" width="115" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u3h-Oh-8hT">
+                                <rect key="frame" x="118" y="36" width="466" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fau-Dn-vyE">
+                                <rect key="frame" x="139" y="74" width="445" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="u3h-Oh-8hT" firstAttribute="top" secondItem="3BU-Pi-l9C" secondAttribute="bottom" constant="16" id="3uf-ec-8v9"/>
+                            <constraint firstItem="fau-Dn-vyE" firstAttribute="trailing" secondItem="YEF-kM-0gb" secondAttribute="trailingMargin" id="Alu-yW-veQ"/>
+                            <constraint firstItem="fau-Dn-vyE" firstAttribute="top" secondItem="u3h-Oh-8hT" secondAttribute="bottom" constant="8" id="F0p-Tl-YLM"/>
+                            <constraint firstItem="9jw-zI-Z7z" firstAttribute="leading" secondItem="YEF-kM-0gb" secondAttribute="leadingMargin" id="X9P-ft-QOw"/>
+                            <constraint firstItem="fau-Dn-vyE" firstAttribute="leading" secondItem="9jw-zI-Z7z" secondAttribute="trailing" constant="8" id="aD4-ST-hPQ"/>
+                            <constraint firstItem="u3h-Oh-8hT" firstAttribute="leading" secondItem="LB4-or-sNC" secondAttribute="trailing" constant="8" id="ai1-GM-hCq"/>
+                            <constraint firstItem="LB4-or-sNC" firstAttribute="top" secondItem="3BU-Pi-l9C" secondAttribute="bottom" constant="25" id="b6e-gW-S7Z"/>
+                            <constraint firstItem="9jw-zI-Z7z" firstAttribute="top" secondItem="u3h-Oh-8hT" secondAttribute="bottom" constant="17" id="eei-L8-EzS"/>
+                            <constraint firstItem="LB4-or-sNC" firstAttribute="leading" secondItem="YEF-kM-0gb" secondAttribute="leadingMargin" id="jpx-CH-n4q"/>
+                            <constraint firstItem="u3h-Oh-8hT" firstAttribute="trailing" secondItem="YEF-kM-0gb" secondAttribute="trailingMargin" id="sQq-wA-tCk"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="itemLocationTextField" destination="fau-Dn-vyE" id="0e3-5E-bIS"/>
+                        <outlet property="itemNameTextField" destination="u3h-Oh-8hT" id="3Av-Oo-4aR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V3e-Ze-lDb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
