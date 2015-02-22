@@ -10,6 +10,11 @@ import Foundation
 
 class ConfirmAddGroceryListItemViewController : UIViewController {
 
+    struct ButtonText {
+        static let Add = "Add" as String
+        static let Update = "Update" as String
+    }
+
     @IBOutlet weak var quantityTextField: UITextField!
     @IBOutlet weak var itemLabel: UILabel!
     @IBOutlet weak var stepper: UIStepper!
@@ -17,7 +22,8 @@ class ConfirmAddGroceryListItemViewController : UIViewController {
     
     
     var listItem: GroceryListItem!
-    var updateString = "Add"
+    var updateString = ButtonText.Add
+    var parent: UIViewControllerProtocol!
     
     class func createViewController() ->ConfirmAddGroceryListItemViewController {
         let storyboard = UIStoryboard(name: Constants.StoryBoardID.MainSBName, bundle: nil)
@@ -35,14 +41,14 @@ class ConfirmAddGroceryListItemViewController : UIViewController {
         viewController.listItem.quantity = 1
         viewController.listItem.unitOfMeasure = ""
         viewController.listItem.saveEventually()
-        viewController.updateString = "Add"
+        viewController.updateString = ButtonText.Add
         return viewController
     }
     
     class func forListItem(listItem: GroceryListItem) -> ConfirmAddGroceryListItemViewController {
         let viewController = ConfirmAddGroceryListItemViewController.createViewController()
         viewController.listItem = listItem
-        viewController.updateString = "Update"
+        viewController.updateString = ButtonText.Update
         return viewController
     }
     
@@ -65,6 +71,9 @@ class ConfirmAddGroceryListItemViewController : UIViewController {
     @IBAction func addItem(sender: AnyObject) {
         listItem.saveInBackgroundWithBlock() {(success, error) -> Void in
             dispatch_async(dispatch_get_main_queue(), {
+                if self.parent != nil {
+                    self.parent.returningToViewController()
+                }
                 self.dismissViewControllerAnimated(true, completion: nil)
             })
         }

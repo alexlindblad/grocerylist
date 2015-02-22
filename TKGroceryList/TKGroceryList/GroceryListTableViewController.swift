@@ -8,7 +8,7 @@
 
 import Foundation
 
-class GroceryListTableViewController: PFQueryTableViewController, UIActionSheetDelegate, UIGestureRecognizerDelegate {
+class GroceryListTableViewController: PFQueryTableViewController, UIActionSheetDelegate, UIGestureRecognizerDelegate, UIViewControllerProtocol {
 
     override init!(style: UITableViewStyle, className: String!) {
         super.init(style: style, className: className)
@@ -27,6 +27,10 @@ class GroceryListTableViewController: PFQueryTableViewController, UIActionSheetD
     
     override func viewWillAppear(animated: Bool) {
         self.addLongPressRecognizer()
+        self.loadObjects()
+    }
+    
+    func returningToViewController() -> Void {
         self.loadObjects()
     }
     
@@ -69,6 +73,7 @@ class GroceryListTableViewController: PFQueryTableViewController, UIActionSheetD
         
         confirmAddController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
         confirmAddController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
+        confirmAddController.parent = self
         presentViewController(confirmAddController, animated: true, completion: nil)
     }
     
