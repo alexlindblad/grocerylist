@@ -13,9 +13,12 @@ class ConfirmAddGroceryListItemViewController : UIViewController {
     @IBOutlet weak var quantityTextField: UITextField!
     @IBOutlet weak var itemLabel: UILabel!
     @IBOutlet weak var stepper: UIStepper!
+    @IBOutlet weak var updateButton: UIButton!
+    
     
     var listItem: GroceryListItem!
-
+    var updateString = "Add"
+    
     class func createViewController() ->ConfirmAddGroceryListItemViewController {
         let storyboard = UIStoryboard(name: Constants.StoryBoardID.MainSBName, bundle: nil)
 
@@ -32,13 +35,14 @@ class ConfirmAddGroceryListItemViewController : UIViewController {
         viewController.listItem.quantity = 1
         viewController.listItem.unitOfMeasure = ""
         viewController.listItem.saveEventually()
-        
+        viewController.updateString = "Add"
         return viewController
     }
     
     class func forListItem(listItem: GroceryListItem) -> ConfirmAddGroceryListItemViewController {
         let viewController = ConfirmAddGroceryListItemViewController.createViewController()
         viewController.listItem = listItem
+        viewController.updateString = "Update"
         return viewController
     }
     
@@ -50,6 +54,7 @@ class ConfirmAddGroceryListItemViewController : UIViewController {
             stepper.value = listItem.quantity.doubleValue
             quantityTextField.text = String(format:"%d", listItem.quantity.integerValue)
         }
+        updateButton.setTitle(updateString, forState: UIControlState.Normal)
     }
     
     @IBAction func valueChanged(sender: UIStepper) {

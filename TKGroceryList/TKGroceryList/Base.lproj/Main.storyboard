@@ -186,6 +186,7 @@
                         <outlet property="itemLabel" destination="e4d-Oh-C9I" id="6PJ-Ss-RJ0"/>
                         <outlet property="quantityTextField" destination="hTB-8C-a3U" id="jxX-Pb-CXy"/>
                         <outlet property="stepper" destination="Xwj-GN-TwM" id="Iv2-ac-gjF"/>
+                        <outlet property="updateButton" destination="xSX-zD-cbO" id="RGK-p5-Ok5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wdu-CV-flt" userLabel="First Responder" sceneMemberID="firstResponder"/>
