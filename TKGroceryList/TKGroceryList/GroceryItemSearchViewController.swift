@@ -32,6 +32,7 @@ class GroceryItemSearchViewController : BaseAddGroceryItemTableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier(Constants.CellReuseID.GroceryItemCell) as GroceryItemCell
         
         if indexPath.row == 0 {
+            cell.backgroundColor = UIColor.greenColor()
             cell.location.text = "ADD NEW"
             cell.itemName.text = ""
             if searchString != nil {
