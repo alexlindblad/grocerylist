@@ -174,6 +174,7 @@ class AddGroceryListItemViewController: BaseAddGroceryItemTableViewController, U
         // Hand over the filtered results to our search results table.
         let resultsController = searchController.searchResultsController as GroceryItemSearchViewController
         resultsController.filteredProducts = filteredResults
+        resultsController.searchString = searchController.searchBar.text
         resultsController.tableView.reloadData()
     }
     
@@ -201,7 +202,12 @@ class AddGroceryListItemViewController: BaseAddGroceryItemTableViewController, U
             selectedItem = products[indexPath.row]
         }
         else {
-            selectedItem = resultsTableController.filteredProducts[indexPath.row]
+            // ADD NEW ITEM
+            if indexPath.row == 0 {
+                //TODO: show add new item vc
+                return
+            }
+            selectedItem = resultsTableController.filteredProducts[indexPath.row-1]
         }
 
         // Set up the detail view controller to show.
