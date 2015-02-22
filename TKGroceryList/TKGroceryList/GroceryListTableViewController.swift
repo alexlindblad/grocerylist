@@ -8,7 +8,7 @@
 
 import Foundation
 
-class GroceryListTableViewController: PFQueryTableViewController, UIActionSheetDelegate {
+class GroceryListTableViewController: PFQueryTableViewController, UIActionSheetDelegate, UIGestureRecognizerDelegate, UIViewControllerProtocol {
 
     override init!(style: UITableViewStyle, className: String!) {
         super.init(style: style, className: className)
@@ -26,8 +26,14 @@ class GroceryListTableViewController: PFQueryTableViewController, UIActionSheetD
     }
     
     override func viewWillAppear(animated: Bool) {
+        self.addLongPressRecognizer()
         self.loadObjects()
     }
+    
+    func returningToViewController() -> Void {
+        self.loadObjects()
+    }
+    
     // MARK: data methods
     override func queryForTable() -> PFQuery {
         var query = GroceryListItem.query()
@@ -41,6 +47,34 @@ class GroceryListTableViewController: PFQueryTableViewController, UIActionSheetD
         query.orderByDescending(Constants.ObjectKey.CreatedAt)
      
         return query
+    }
+    
+    func addLongPressRecognizer() -> Void {
+        var lpgr = UILongPressGestureRecognizer(target: self, action: "handleLongPress:")
+        lpgr.minimumPressDuration = 1.5 //seconds
+        lpgr.delegate = self
+        self.tableView.addGestureRecognizer(lpgr)
+    }
+    
+    func handleLongPress(gestureRecognizer: UIGestureRecognizer) -> Void {
+        if gestureRecognizer.state == UIGestureRecognizerState.Ended {
+            var p = gestureRecognizer.locationInView(self.tableView)
+            var indexPath = self.tableView.indexPathForRowAtPoint(p)
+            if indexPath != nil {
+                var gli = self.objectAtIndexPath(indexPath) as GroceryListItem
+                self.showGroceryItemEditView(gli)
+            }
+        }
+    }
+    
+    func showGroceryItemEditView(groceryListItem: GroceryListItem) -> Void {
+        // Set up the detail view controller to show.
+        let confirmAddController = ConfirmAddGroceryListItemViewController.forListItem(groceryListItem)
+        
+        confirmAddController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+        confirmAddController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
+        confirmAddController.parent = self
+        presentViewController(confirmAddController, animated: true, completion: nil)
     }
     
     override func tableView(tableView: UITableView,

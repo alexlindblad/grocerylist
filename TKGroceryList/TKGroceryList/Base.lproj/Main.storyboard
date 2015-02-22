@@ -117,21 +117,21 @@
         <!--Confirm Add Grocery List Item View Controller-->
         <scene sceneID="ldS-ee-9xs">
             <objects>
-                <viewController storyboardIdentifier="ConfirmAddGroceryListItemID" id="aJk-uh-yaf" customClass="ConfirmAddGroceryListItemViewController" customModule="TKGroceryList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ConfirmAddGroceryListItemID" modalTransitionStyle="crossDissolve" modalPresentationStyle="currentContext" id="aJk-uh-yaf" customClass="ConfirmAddGroceryListItemViewController" customModule="TKGroceryList" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PaV-JS-mXh"/>
                         <viewControllerLayoutGuide type="bottom" id="i2o-4J-YVZ"/>
                     </layoutGuides>
-                    <view key="view" opaque="NO" alpha="0.20000000000000001" contentMode="scaleToFill" id="ifk-Qz-Nok">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="ifk-Qz-Nok">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view alpha="0.39999999999999963" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zWc-XA-ogH">
+                            <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cUT-Cr-mvg">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0RM-Ka-m6d">
-                                <rect key="frame" x="130" y="214" width="297" height="137"/>
+                            <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0RM-Ka-m6d">
+                                <rect key="frame" x="11" y="214" width="297" height="137"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Item" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4d-Oh-C9I">
                                         <rect key="frame" x="0.0" y="10" width="297" height="44"/>
@@ -172,12 +172,10 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="zWc-XA-ogH" firstAttribute="leading" secondItem="ifk-Qz-Nok" secondAttribute="leadingMargin" constant="-16" id="64m-R6-TXd"/>
-                            <constraint firstItem="zWc-XA-ogH" firstAttribute="top" secondItem="PaV-JS-mXh" secondAttribute="bottom" id="6on-ot-y6r"/>
-                            <constraint firstAttribute="centerY" secondItem="0RM-Ka-m6d" secondAttribute="centerY" id="CMu-NZ-1pv"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="zWc-XA-ogH" secondAttribute="trailing" constant="-16" id="FKH-UU-4da"/>
-                            <constraint firstAttribute="centerX" secondItem="0RM-Ka-m6d" secondAttribute="centerX" id="GLK-rR-nPV"/>
-                            <constraint firstItem="i2o-4J-YVZ" firstAttribute="top" secondItem="zWc-XA-ogH" secondAttribute="bottom" id="tDQ-il-ffu"/>
+                            <constraint firstAttribute="trailing" secondItem="cUT-Cr-mvg" secondAttribute="trailing" id="CHj-6j-TqF"/>
+                            <constraint firstItem="i2o-4J-YVZ" firstAttribute="top" secondItem="cUT-Cr-mvg" secondAttribute="bottom" id="ErM-lr-bbf"/>
+                            <constraint firstItem="cUT-Cr-mvg" firstAttribute="top" secondItem="PaV-JS-mXh" secondAttribute="bottom" id="cCO-wx-n3a"/>
+                            <constraint firstItem="cUT-Cr-mvg" firstAttribute="leading" secondItem="ifk-Qz-Nok" secondAttribute="leading" id="vRG-Jp-bag"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -187,6 +185,8 @@
                     <connections>
                         <outlet property="itemLabel" destination="e4d-Oh-C9I" id="6PJ-Ss-RJ0"/>
                         <outlet property="quantityTextField" destination="hTB-8C-a3U" id="jxX-Pb-CXy"/>
+                        <outlet property="stepper" destination="Xwj-GN-TwM" id="Iv2-ac-gjF"/>
+                        <outlet property="updateButton" destination="xSX-zD-cbO" id="RGK-p5-Ok5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wdu-CV-flt" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -35,6 +35,7 @@
 		FA2DF1FC1A71EAD0004FD44E /* GroceryListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2DF1FB1A71EAD0004FD44E /* GroceryListTableViewController.swift */; };
 		FA2DF2001A730028004FD44E /* GroceryListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2DF1FF1A730028004FD44E /* GroceryListItemCell.swift */; };
 		FA93DCA31A7D80A200482895 /* ConfigurationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA93DCA21A7D80A200482895 /* ConfigurationManager.swift */; };
+		FA9E52D41A99611100AFCEA5 /* UIViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9E52D31A99611100AFCEA5 /* UIViewControllerProtocol.swift */; };
 		FAB6FA8D1A788CCA00E65F7D /* GroceryItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6FA8C1A788CCA00E65F7D /* GroceryItemCell.swift */; };
 		FAB6FA941A78CADE00E65F7D /* ConfirmAddGroceryListItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6FA931A78CADE00E65F7D /* ConfirmAddGroceryListItemViewController.swift */; };
 		FADB995C1A7393B50065143B /* AddGroceryListItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB995B1A7393B50065143B /* AddGroceryListItemViewController.swift */; };
@@ -91,6 +92,7 @@
 		FA2DF1FB1A71EAD0004FD44E /* GroceryListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryListTableViewController.swift; sourceTree = "<group>"; };
 		FA2DF1FF1A730028004FD44E /* GroceryListItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryListItemCell.swift; sourceTree = "<group>"; };
 		FA93DCA21A7D80A200482895 /* ConfigurationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationManager.swift; sourceTree = "<group>"; };
+		FA9E52D31A99611100AFCEA5 /* UIViewControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerProtocol.swift; sourceTree = "<group>"; };
 		FAB6FA8C1A788CCA00E65F7D /* GroceryItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryItemCell.swift; sourceTree = "<group>"; };
 		FAB6FA931A78CADE00E65F7D /* ConfirmAddGroceryListItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmAddGroceryListItemViewController.swift; sourceTree = "<group>"; };
 		FADB995B1A7393B50065143B /* AddGroceryListItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGroceryListItemViewController.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 		FA0E15EB1A6F09DE0075B424 /* TKGroceryList */ = {
 			isa = PBXGroup;
 			children = (
+				FA9E52D21A9960E900AFCEA5 /* Protocols */,
 				FA93DCA11A7D809300482895 /* Managers */,
 				FAB6FA921A7891BF00E65F7D /* Cells */,
 				FAB6FA911A78915B00E65F7D /* Model */,
@@ -231,6 +234,14 @@
 				FA93DCA21A7D80A200482895 /* ConfigurationManager.swift */,
 			);
 			name = Managers;
+			sourceTree = "<group>";
+		};
+		FA9E52D21A9960E900AFCEA5 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				FA9E52D31A99611100AFCEA5 /* UIViewControllerProtocol.swift */,
+			);
+			name = Protocols;
 			sourceTree = "<group>";
 		};
 		FAB6FA8E1A7890E500E65F7D /* ViewControllers */ = {
@@ -394,6 +405,7 @@
 			files = (
 				FADB99661A76192F0065143B /* GroceryListItem.swift in Sources */,
 				FADB995C1A7393B50065143B /* AddGroceryListItemViewController.swift in Sources */,
+				FA9E52D41A99611100AFCEA5 /* UIViewControllerProtocol.swift in Sources */,
 				FAB6FA8D1A788CCA00E65F7D /* GroceryItemCell.swift in Sources */,
 				FADB99641A7618A30065143B /* GroceryItem.swift in Sources */,
 				FA2DF1FC1A71EAD0004FD44E /* GroceryListTableViewController.swift in Sources */,
