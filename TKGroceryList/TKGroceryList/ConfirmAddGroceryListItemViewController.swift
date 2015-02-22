@@ -12,9 +12,9 @@ class ConfirmAddGroceryListItemViewController : UIViewController {
 
     @IBOutlet weak var quantityTextField: UITextField!
     @IBOutlet weak var itemLabel: UILabel!
+    @IBOutlet weak var stepper: UIStepper!
     
     var listItem: GroceryListItem!
-    var quantity = 1 as NSNumber!
 
     class func createViewController() ->ConfirmAddGroceryListItemViewController {
         let storyboard = UIStoryboard(name: Constants.StoryBoardID.MainSBName, bundle: nil)
@@ -26,6 +26,7 @@ class ConfirmAddGroceryListItemViewController : UIViewController {
     
     class func forItem(item: GroceryItem) -> ConfirmAddGroceryListItemViewController {
         let viewController = ConfirmAddGroceryListItemViewController.createViewController()
+
         viewController.listItem = GroceryListItem()
         viewController.listItem.item = item
         viewController.listItem.quantity = 1
@@ -35,25 +36,33 @@ class ConfirmAddGroceryListItemViewController : UIViewController {
         return viewController
     }
     
+    class func forListItem(listItem: GroceryListItem) -> ConfirmAddGroceryListItemViewController {
+        let viewController = ConfirmAddGroceryListItemViewController.createViewController()
+        viewController.listItem = listItem
+        return viewController
+    }
+    
     
     override func viewWillAppear(animated: Bool) {
         if listItem != nil {
             listItem.item.fetchIfNeeded()
             itemLabel.text = listItem.item.name
-            quantity = listItem.quantity
-            quantityTextField.text = String(format:"%d", listItem.quantity)
+            stepper.value = listItem.quantity.doubleValue
+            quantityTextField.text = String(format:"%d", listItem.quantity.integerValue)
         }
     }
     
     @IBAction func valueChanged(sender: UIStepper) {
-        quantity = NSNumber(double:sender.value)
-        listItem.quantity = quantity
-        quantityTextField.text = String(format:"%d", quantity.integerValue)
+        listItem.quantity = NSNumber(double:sender.value)
+        quantityTextField.text = String(format:"%d", listItem.quantity.integerValue)
     }
     
     @IBAction func addItem(sender: AnyObject) {
-        listItem.saveEventually()
-        self.dismissViewControllerAnimated(true, completion: nil)
+        listItem.saveInBackgroundWithBlock() {(success, error) -> Void in
+            dispatch_async(dispatch_get_main_queue(), {
+                self.dismissViewControllerAnimated(true, completion: nil)
+            })
+        }
     }
     
     @IBAction func cancel(sender: AnyObject) {

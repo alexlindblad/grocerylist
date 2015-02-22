@@ -64,9 +64,8 @@ class GroceryListTableViewController: PFQueryTableViewController, UIActionSheetD
     }
     
     func showGroceryItemEditView(groceryListItem: GroceryListItem) -> Void {
-        groceryListItem.item.fetchIfNeeded()
         // Set up the detail view controller to show.
-        let confirmAddController = ConfirmAddGroceryListItemViewController.forItem(groceryListItem.item)
+        let confirmAddController = ConfirmAddGroceryListItemViewController.forListItem(groceryListItem)
         
         confirmAddController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
         confirmAddController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
