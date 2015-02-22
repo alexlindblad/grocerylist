@@ -19,6 +19,7 @@ struct Constants {
         static let MainSBName = "Main" as String
         static let LogIn = "LoginViewController" as String
         static let ConfirmAddListItem = "ConfirmAddGroceryListItemID" as String
+        static let GroceryItemView = "GroceryItemViewID" as String
     }
 
     struct Nib {

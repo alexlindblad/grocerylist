@@ -204,7 +204,9 @@ class AddGroceryListItemViewController: BaseAddGroceryItemTableViewController, U
         else {
             // ADD NEW ITEM
             if indexPath.row == 0 {
-                //TODO: show add new item vc
+                let storyboard = UIStoryboard(name: Constants.StoryBoardID.MainSBName, bundle: nil)
+                let viewController = storyboard.instantiateViewControllerWithIdentifier(Constants.StoryBoardID.GroceryItemView) as GroceryItemViewController
+                self.navigationController?.pushViewController(viewController, animated: true)
                 return
             }
             selectedItem = resultsTableController.filteredProducts[indexPath.row-1]
