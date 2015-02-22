@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddGroceryListItemViewController: BaseAddGroceryItemTableViewController, UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating {
+class AddGroceryListItemViewController: BaseAddGroceryItemTableViewController, UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating, UIViewControllerProtocol {
     // MARK: Types
     
     struct RestorationKeys {
@@ -53,6 +53,8 @@ class AddGroceryListItemViewController: BaseAddGroceryItemTableViewController, U
         searchController = UISearchController(searchResultsController: resultsTableController)
         searchController.searchResultsUpdater = self
         searchController.searchBar.sizeToFit()
+        searchController.searchBar.autocapitalizationType = UITextAutocapitalizationType.None
+
         tableView.tableHeaderView = searchController.searchBar
 
         searchController.delegate = self
@@ -63,16 +65,8 @@ class AddGroceryListItemViewController: BaseAddGroceryItemTableViewController, U
         // presentation semantics apply. Namely that presentation will walk up the view controller
         // hierarchy until it finds the root view controller or one that defines a presentation context.
         definesPresentationContext = true
-        
-        var query = GroceryItem.query()
-        query.findObjectsInBackgroundWithBlock({(objects, error) -> Void in
-            if error == nil {
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.products = objects as [GroceryItem]!
-                    self.tableView.reloadData()
-                });
-            }
-        })
+
+        loadObjects()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -88,6 +82,39 @@ class AddGroceryListItemViewController: BaseAddGroceryItemTableViewController, U
                 restoredState.wasFirstResponder = false
             }
         }
+    }
+    
+    func loadObjects() {
+        var query = GroceryItem.query()
+        query.orderByAscending(Constants.GroceryItemKey.Name)
+        query.findObjectsInBackgroundWithBlock({(objects, error) -> Void in
+            if error == nil {
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.products = objects as [GroceryItem]!
+                    self.tableView.reloadData()
+                });
+            }
+        })
+    }
+    
+    func returningToViewController() {
+        var query = GroceryItem.query() as PFQuery
+        query.orderByDescending(Constants.ObjectKey.CreatedAt)
+        query.getFirstObjectInBackgroundWithBlock() {(object, error) -> Void in
+            dispatch_async(dispatch_get_main_queue(), {
+                self.loadObjects()
+                self.searchController.searchResultsController?.dismissViewControllerAnimated(true, completion: nil)
+                self.presentAddGroceryListItemViewControllerForGroceryItem(object as GroceryItem)
+            })
+        }
+    }
+    
+    func presentAddGroceryListItemViewControllerForGroceryItem(groceryItem: GroceryItem) -> Void {
+        // Set up the detail view controller to show.
+        let confirmAddController = ConfirmAddGroceryListItemViewController.forItem(groceryItem)
+        confirmAddController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+        confirmAddController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
+        presentViewController(confirmAddController, animated: true, completion: nil)
     }
     
     // MARK: UISearchBarDelegate
@@ -174,6 +201,7 @@ class AddGroceryListItemViewController: BaseAddGroceryItemTableViewController, U
         // Hand over the filtered results to our search results table.
         let resultsController = searchController.searchResultsController as GroceryItemSearchViewController
         resultsController.filteredProducts = filteredResults
+        resultsController.searchString = searchController.searchBar.text
         resultsController.tableView.reloadData()
     }
     
@@ -201,18 +229,20 @@ class AddGroceryListItemViewController: BaseAddGroceryItemTableViewController, U
             selectedItem = products[indexPath.row]
         }
         else {
-            selectedItem = resultsTableController.filteredProducts[indexPath.row]
+            // ADD NEW ITEM
+            if indexPath.row == 0 {
+                let viewController = GroceryItemViewController.forItemName(searchController.searchBar.text)
+                viewController.parent = self
+                self.navigationController?.pushViewController(viewController, animated: true)
+                return
+            }
+            selectedItem = resultsTableController.filteredProducts[indexPath.row-1]
         }
 
-        // Set up the detail view controller to show.
-        let confirmAddController = ConfirmAddGroceryListItemViewController.forItem(selectedItem)
         
         // Note: Should not be necessary but current iOS 8.0 bug requires it.
         tableView.deselectRowAtIndexPath(tableView.indexPathForSelectedRow()!, animated: false)
-        confirmAddController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
-        confirmAddController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
-        presentViewController(confirmAddController, animated: true, completion: nil)
-    
+        presentAddGroceryListItemViewControllerForGroceryItem(selectedItem)
     }
     
     // MARK: UIStateRestoration

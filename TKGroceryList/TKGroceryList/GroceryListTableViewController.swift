@@ -10,6 +10,10 @@ import Foundation
 
 class GroceryListTableViewController: PFQueryTableViewController, UIActionSheetDelegate, UIGestureRecognizerDelegate, UIViewControllerProtocol {
 
+    struct LongPressConfig {
+        static let Duration = 1.0 as CFTimeInterval
+    }
+
     override init!(style: UITableViewStyle, className: String!) {
         super.init(style: style, className: className)
     }
@@ -51,13 +55,13 @@ class GroceryListTableViewController: PFQueryTableViewController, UIActionSheetD
     
     func addLongPressRecognizer() -> Void {
         var lpgr = UILongPressGestureRecognizer(target: self, action: "handleLongPress:")
-        lpgr.minimumPressDuration = 1.5 //seconds
+        lpgr.minimumPressDuration = LongPressConfig.Duration
         lpgr.delegate = self
         self.tableView.addGestureRecognizer(lpgr)
     }
     
     func handleLongPress(gestureRecognizer: UIGestureRecognizer) -> Void {
-        if gestureRecognizer.state == UIGestureRecognizerState.Ended {
+        if gestureRecognizer.state == UIGestureRecognizerState.Began {
             var p = gestureRecognizer.locationInView(self.tableView)
             var indexPath = self.tableView.indexPathForRowAtPoint(p)
             if indexPath != nil {

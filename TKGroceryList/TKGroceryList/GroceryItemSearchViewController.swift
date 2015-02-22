@@ -12,7 +12,8 @@ class GroceryItemSearchViewController : BaseAddGroceryItemTableViewController {
     // MARK: Properties
     
     var filteredProducts = [GroceryItem]()
-    
+    var searchString: String!
+
     // MARK: View Life Cycle
     
     override func viewDidLoad() {
@@ -24,15 +25,23 @@ class GroceryItemSearchViewController : BaseAddGroceryItemTableViewController {
     // MARK: UITableViewDataSource
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredProducts.count
+        return filteredProducts.count+1
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(Constants.CellReuseID.GroceryItemCell) as GroceryItemCell
         
-        let item = filteredProducts[indexPath.row]
-        configureCell(cell, forGroceryItem: item);
-        
+        if indexPath.row == 0 {
+            cell.backgroundColor = UIColor.greenColor()
+            cell.location.text = "ADD NEW"
+            cell.itemName.text = ""
+            if searchString != nil {
+                cell.itemName.text = searchString
+            }
+        } else {
+            let item = filteredProducts[indexPath.row-1]
+            configureCell(cell, forGroceryItem: item);
+        }
         return cell
     }
 }
