@@ -99,13 +99,22 @@ class AddGroceryListItemViewController: BaseAddGroceryItemTableViewController, U
     
     func returningToViewController() {
         var query = GroceryItem.query() as PFQuery
-        query.orderByAscending("createdAt")
+        query.orderByDescending(Constants.ObjectKey.CreatedAt)
         query.getFirstObjectInBackgroundWithBlock() {(object, error) -> Void in
             dispatch_async(dispatch_get_main_queue(), {
                 self.loadObjects()
                 self.searchController.searchResultsController?.dismissViewControllerAnimated(true, completion: nil)
+                self.presentAddGroceryListItemViewControllerForGroceryItem(object as GroceryItem)
             })
         }
+    }
+    
+    func presentAddGroceryListItemViewControllerForGroceryItem(groceryItem: GroceryItem) -> Void {
+        // Set up the detail view controller to show.
+        let confirmAddController = ConfirmAddGroceryListItemViewController.forItem(groceryItem)
+        confirmAddController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+        confirmAddController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
+        presentViewController(confirmAddController, animated: true, completion: nil)
     }
     
     // MARK: UISearchBarDelegate
@@ -230,15 +239,10 @@ class AddGroceryListItemViewController: BaseAddGroceryItemTableViewController, U
             selectedItem = resultsTableController.filteredProducts[indexPath.row-1]
         }
 
-        // Set up the detail view controller to show.
-        let confirmAddController = ConfirmAddGroceryListItemViewController.forItem(selectedItem)
         
         // Note: Should not be necessary but current iOS 8.0 bug requires it.
         tableView.deselectRowAtIndexPath(tableView.indexPathForSelectedRow()!, animated: false)
-        confirmAddController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
-        confirmAddController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
-        presentViewController(confirmAddController, animated: true, completion: nil)
-    
+        presentAddGroceryListItemViewControllerForGroceryItem(selectedItem)
     }
     
     // MARK: UIStateRestoration

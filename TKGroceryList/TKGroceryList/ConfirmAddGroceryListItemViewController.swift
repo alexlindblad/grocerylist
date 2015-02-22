@@ -40,7 +40,6 @@ class ConfirmAddGroceryListItemViewController : UIViewController {
         viewController.listItem.item = item
         viewController.listItem.quantity = 1
         viewController.listItem.unitOfMeasure = ""
-        viewController.listItem.saveEventually()
         viewController.updateString = ButtonText.Add
         return viewController
     }
