@@ -30,6 +30,7 @@ class GroceryListTableViewController: PFQueryTableViewController, UIActionSheetD
     }
     
     override func viewWillAppear(animated: Bool) {
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
         self.addLongPressRecognizer()
         self.loadObjects()
     }
@@ -41,7 +42,8 @@ class GroceryListTableViewController: PFQueryTableViewController, UIActionSheetD
     // MARK: data methods
     override func queryForTable() -> PFQuery {
         var query = GroceryListItem.query()
-     
+        query.includeKey(Constants.GroceryListItemKey.Item)
+        
         // If no objects are loaded in memory, we look to the cache first to fill the table
         // and then subsequently do a query against the network.
         if self.objects.count == 0 {
@@ -94,15 +96,7 @@ class GroceryListTableViewController: PFQueryTableViewController, UIActionSheetD
         var groceryItem = listItem.item
 
         cell.quantityLabel?.text = String(format: "%@ %@", listItem.quantity, listItem.unitOfMeasure)
-        
-        groceryItem.fetchIfNeededInBackgroundWithBlock { (object, error) -> Void in
-            var groceryItem = object as GroceryItem
-            dispatch_async(dispatch_get_main_queue()) {
-                if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) as GroceryListItemCell? {
-                    cellToUpdate.itemName?.text = groceryItem.name as NSString
-                }
-            }
-        }
+        cell.itemName?.text = groceryItem.name as NSString
         
         return cell
     }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class GroceryItemViewController : UIViewController {
+class GroceryItemViewController : UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
     @IBOutlet weak var itemNameTextField: UITextField!
     @IBOutlet weak var itemLocationTextField: UITextField!
@@ -24,9 +24,39 @@ class GroceryItemViewController : UIViewController {
         return viewController
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewDidLoad() {
         itemNameTextField.text = itemName
         itemLocationTextField.text = ""
+        
+        setupLocationPicking()
+    }
+    
+    
+    private func addLocationPicker() {
+        var locationPicker = UIPickerView(frame: CGRectMake(0, 0, self.view.frame.width, 162))
+        locationPicker.backgroundColor = UIColor.whiteColor()
+        locationPicker.delegate = self
+        locationPicker.dataSource = self
+        locationPicker.showsSelectionIndicator = true
+        itemLocationTextField.inputView = locationPicker
+    }
+    
+    private func addLocationAccessoryView() {
+        var toolbar = UIToolbar(frame: CGRectMake(0, 0, self.view.frame.width, 44))
+        toolbar.barStyle = UIBarStyle.Default
+        var space = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+        var done = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "doneTapped:")
+        toolbar.items = [space, done]
+        itemLocationTextField.inputAccessoryView = toolbar
+    }
+    
+    private func setupLocationPicking() {
+        addLocationPicker()
+        addLocationAccessoryView()
+    }
+    
+    func doneTapped(sender: UIBarButtonItem) -> Void {
+        itemLocationTextField.resignFirstResponder()
     }
     
     func onSave(sender: UIBarButtonItem) -> Void {
@@ -42,4 +72,23 @@ class GroceryItemViewController : UIViewController {
             })
         }
     }
+    
+//MARK: - Delegates and data sources
+    //MARK: Data Sources
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return ConfigurationManager.manager.storeLocations.count
+    }
+    
+    //MARK: Delegates
+   func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+       return ConfigurationManager.manager.storeLocations[row] as String
+   }
+ 
+   func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+       itemLocationTextField.text = ConfigurationManager.manager.storeLocations[row] as String
+   }
 }
