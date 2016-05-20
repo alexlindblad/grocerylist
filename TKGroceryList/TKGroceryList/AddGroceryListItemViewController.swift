@@ -86,12 +86,12 @@ class AddGroceryListItemViewController: BaseAddGroceryItemTableViewController, U
     }
     
     func loadObjects() {
-        var query = GroceryItem.query()
+        let query = GroceryItem.query()
         query.orderByAscending(Constants.GroceryItemKey.Name)
         query.findObjectsInBackgroundWithBlock({(objects, error) -> Void in
             if error == nil {
                 dispatch_async(dispatch_get_main_queue(), {
-                    self.products = objects as [GroceryItem]!
+                    self.products = objects as! [GroceryItem]!
                     self.tableView.reloadData()
                 });
             }
@@ -99,14 +99,14 @@ class AddGroceryListItemViewController: BaseAddGroceryItemTableViewController, U
     }
     
     func returningToViewController() {
-        var query = GroceryItem.query() as PFQuery
+        let query = GroceryItem.query() as PFQuery
         query.orderByDescending(Constants.ObjectKey.CreatedAt)
         query.getFirstObjectInBackgroundWithBlock() {(object, error) -> Void in
             dispatch_async(dispatch_get_main_queue(), {
                 self.loadObjects()
                 self.searchController.searchBar.text = ""
                 self.searchController.searchResultsController?.dismissViewControllerAnimated(true, completion: nil)
-                self.presentAddGroceryListItemViewControllerForGroceryItem(object as GroceryItem)
+                self.presentAddGroceryListItemViewControllerForGroceryItem(object as! GroceryItem)
             })
         }
     }
@@ -201,7 +201,7 @@ class AddGroceryListItemViewController: BaseAddGroceryItemTableViewController, U
         let filteredResults = searchResults.filter { finalCompoundPredicate.evaluateWithObject($0) }
         
         // Hand over the filtered results to our search results table.
-        let resultsController = searchController.searchResultsController as GroceryItemSearchViewController
+        let resultsController = searchController.searchResultsController as! GroceryItemSearchViewController
         resultsController.filteredProducts = filteredResults
         resultsController.searchString = searchController.searchBar.text
         resultsController.tableView.reloadData()
@@ -214,7 +214,7 @@ class AddGroceryListItemViewController: BaseAddGroceryItemTableViewController, U
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.CellReuseID.GroceryItemCell) as GroceryItemCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.CellReuseID.GroceryItemCell) as! GroceryItemCell
         
         let item = products[indexPath.row]
         configureCell(cell, forGroceryItem: item)
@@ -238,12 +238,13 @@ class AddGroceryListItemViewController: BaseAddGroceryItemTableViewController, U
                 self.navigationController?.pushViewController(viewController, animated: true)
                 return
             }
+            
             selectedItem = resultsTableController.filteredProducts[indexPath.row-1]
         }
 
         
         // Note: Should not be necessary but current iOS 8.0 bug requires it.
-        tableView.deselectRowAtIndexPath(tableView.indexPathForSelectedRow()!, animated: false)
+        tableView.deselectRowAtIndexPath(tableView.indexPathForSelectedRow!, animated: false)
         presentAddGroceryListItemViewControllerForGroceryItem(selectedItem)
     }
     
@@ -291,6 +292,6 @@ class AddGroceryListItemViewController: BaseAddGroceryItemTableViewController, U
         restoredState.wasFirstResponder = coder.decodeBoolForKey(RestorationKeys.searchBarIsFirstResponder)
         
         // Restore the text in the search field.
-        searchController.searchBar.text = coder.decodeObjectForKey(RestorationKeys.searchBarText) as String
+        searchController.searchBar.text = coder.decodeObjectForKey(RestorationKeys.searchBarText) as! String
     }
 }

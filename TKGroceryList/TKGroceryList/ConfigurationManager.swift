@@ -28,10 +28,10 @@ class ConfigurationManager {
     }
     
     var unitsOfMeasure : NSArray {
-        return (self.config[Constants.Configuration.UnitsOfMeasure] ?? NSArray()) as NSArray
+        return (self.config[Constants.Configuration.UnitsOfMeasure] ?? NSArray()) as! NSArray
     }
     
     var storeLocations : NSArray {
-        return (self.config[Constants.Configuration.StoreLocation] ?? NSArray()) as NSArray
+        return (self.config[Constants.Configuration.StoreLocation] ?? NSArray()) as! NSArray
     }
 }

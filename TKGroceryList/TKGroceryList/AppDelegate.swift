@@ -51,12 +51,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     class func getAppDelegate() -> AppDelegate {
-        return UIApplication.sharedApplication().delegate as AppDelegate
+        return UIApplication.sharedApplication().delegate as! AppDelegate
     }
 
     func logOut() -> Void {
         PFUser.logOut();
-        var loginVC = UIStoryboard(name: Constants.StoryBoardID.MainSBName, bundle: nil).instantiateViewControllerWithIdentifier(Constants.StoryBoardID.LogIn) as UIViewController
+        let loginVC = UIStoryboard(name: Constants.StoryBoardID.MainSBName, bundle: nil).instantiateViewControllerWithIdentifier(Constants.StoryBoardID.LogIn) as UIViewController
         self.window?.rootViewController = loginVC
     }
 }

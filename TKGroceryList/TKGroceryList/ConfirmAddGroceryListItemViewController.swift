@@ -28,7 +28,7 @@ class ConfirmAddGroceryListItemViewController : UIViewController {
     class func createViewController() ->ConfirmAddGroceryListItemViewController {
         let storyboard = UIStoryboard(name: Constants.StoryBoardID.MainSBName, bundle: nil)
 
-        let viewController = storyboard.instantiateViewControllerWithIdentifier(Constants.StoryBoardID.ConfirmAddListItem) as ConfirmAddGroceryListItemViewController
+        let viewController = storyboard.instantiateViewControllerWithIdentifier(Constants.StoryBoardID.ConfirmAddListItem) as! ConfirmAddGroceryListItemViewController
 
         return viewController
     }
@@ -55,7 +55,7 @@ class ConfirmAddGroceryListItemViewController : UIViewController {
     override func viewWillAppear(animated: Bool) {
         if listItem != nil {
             listItem.item.fetchIfNeeded()
-            itemLabel.text = listItem.item.name
+            itemLabel.text = listItem.item.name as String
             stepper.value = listItem.quantity.doubleValue
             quantityTextField.text = String(format:"%d", listItem.quantity.integerValue)
         }
