@@ -333,6 +333,8 @@
 		FA0E15E11A6F09DE0075B424 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0730;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "TallKid Engineering";
 				TargetAttributes = {

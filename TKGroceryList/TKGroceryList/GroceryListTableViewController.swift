@@ -24,8 +24,8 @@ class GroceryListTableViewController: PFQueryTableViewController, UIActionSheetD
         self.pullToRefreshEnabled = true
         self.paginationEnabled = false
         
-        var menuBarButton = UIBarButtonItem(image: UIImage(named: Constants.Image.MoreMenu), style: UIBarButtonItemStyle.Plain, target: self, action: "moreMenuTouched");
-        var plusBarButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "plusButtonTouched")
+        let menuBarButton = UIBarButtonItem(image: UIImage(named: Constants.Image.MoreMenu), style: UIBarButtonItemStyle.Plain, target: self, action: "moreMenuTouched");
+        let plusBarButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "plusButtonTouched")
         self.navigationItem.rightBarButtonItems = [menuBarButton, plusBarButton]
     }
     
@@ -41,7 +41,7 @@ class GroceryListTableViewController: PFQueryTableViewController, UIActionSheetD
     
     // MARK: data methods
     override func queryForTable() -> PFQuery {
-        var query = GroceryListItem.query()
+        let query = GroceryListItem.query()
         query.includeKey(Constants.GroceryListItemKey.Item)
         
         // If no objects are loaded in memory, we look to the cache first to fill the table
@@ -56,7 +56,7 @@ class GroceryListTableViewController: PFQueryTableViewController, UIActionSheetD
     }
     
     func addLongPressRecognizer() -> Void {
-        var lpgr = UILongPressGestureRecognizer(target: self, action: "handleLongPress:")
+        let lpgr = UILongPressGestureRecognizer(target: self, action: "handleLongPress:")
         lpgr.minimumPressDuration = LongPressConfig.Duration
         lpgr.delegate = self
         self.tableView.addGestureRecognizer(lpgr)
@@ -67,7 +67,7 @@ class GroceryListTableViewController: PFQueryTableViewController, UIActionSheetD
             var p = gestureRecognizer.locationInView(self.tableView)
             var indexPath = self.tableView.indexPathForRowAtPoint(p)
             if indexPath != nil {
-                var gli = self.objectAtIndexPath(indexPath) as GroceryListItem
+                var gli = self.objectAtIndexPath(indexPath) as! GroceryListItem
                 self.showGroceryItemEditView(gli)
             }
         }
@@ -88,9 +88,9 @@ class GroceryListTableViewController: PFQueryTableViewController, UIActionSheetD
             object: PFObject) -> PFTableViewCell {
             
         var cellIdentifier = Constants.CellReuseID.GroceryListItemCell
-        var listItem = object as GroceryListItem
+        var listItem = object as! GroceryListItem
         
-        var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as GroceryListItemCell
+        var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as! GroceryListItemCell
      
         // Configure the cell
         var groceryItem = listItem.item
@@ -103,7 +103,7 @@ class GroceryListTableViewController: PFQueryTableViewController, UIActionSheetD
     
     // MARK: internal methods
     func moreMenuTouched() -> Void {
-        var actionSheet = UIActionSheet(title: Constants.ActionSheet.Title, delegate: self, cancelButtonTitle: Constants.ActionSheet.Cancel, destructiveButtonTitle: Constants.ActionSheet.Logout) as UIActionSheet
+        let actionSheet = UIActionSheet(title: Constants.ActionSheet.Title, delegate: self, cancelButtonTitle: Constants.ActionSheet.Cancel, destructiveButtonTitle: Constants.ActionSheet.Logout) as UIActionSheet
         actionSheet.actionSheetStyle = UIActionSheetStyle.BlackTranslucent
         actionSheet.showInView(self.view)
     }

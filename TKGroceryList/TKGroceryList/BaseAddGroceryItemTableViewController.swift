@@ -25,7 +25,7 @@ class BaseAddGroceryItemTableViewController: UITableViewController {
     
     func configureCell(cell: GroceryItemCell, forGroceryItem item: GroceryItem) {
         cell.backgroundColor = UIColor.whiteColor()
-        cell.itemName?.text = item.name
-        cell.location?.text = item.location
+        cell.itemName?.text = item.name as String
+        cell.location?.text = item.location as String
     }
 }

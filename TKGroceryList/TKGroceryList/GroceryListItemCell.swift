@@ -13,7 +13,7 @@ class GroceryListItemCell : PFTableViewCell {
     @IBOutlet weak var itemName: UILabel!
     @IBOutlet weak var quantityLabel: UILabel!
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     

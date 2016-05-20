@@ -29,7 +29,7 @@ class GroceryItemSearchViewController : BaseAddGroceryItemTableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.CellReuseID.GroceryItemCell) as GroceryItemCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.CellReuseID.GroceryItemCell) as! GroceryItemCell
         
         if indexPath.row == 0 {
             cell.backgroundColor = UIColor.greenColor()

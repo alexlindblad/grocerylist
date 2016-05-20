@@ -17,7 +17,7 @@ class GroceryItemViewController : UIViewController, UIPickerViewDataSource, UIPi
     
     class func forItemName(itemName: String) -> GroceryItemViewController {
         let storyboard = UIStoryboard(name: Constants.StoryBoardID.MainSBName, bundle: nil)
-        let viewController = storyboard.instantiateViewControllerWithIdentifier(Constants.StoryBoardID.GroceryItemView) as GroceryItemViewController
+        let viewController = storyboard.instantiateViewControllerWithIdentifier(Constants.StoryBoardID.GroceryItemView) as! GroceryItemViewController
         
         viewController.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Save, target: viewController, action: "onSave:")
         viewController.itemName = itemName
@@ -33,7 +33,7 @@ class GroceryItemViewController : UIViewController, UIPickerViewDataSource, UIPi
     
     
     private func addLocationPicker() {
-        var locationPicker = UIPickerView(frame: CGRectMake(0, 0, self.view.frame.width, 162))
+        let locationPicker = UIPickerView(frame: CGRectMake(0, 0, self.view.frame.width, 162))
         locationPicker.backgroundColor = UIColor.whiteColor()
         locationPicker.delegate = self
         locationPicker.dataSource = self
@@ -42,10 +42,10 @@ class GroceryItemViewController : UIViewController, UIPickerViewDataSource, UIPi
     }
     
     private func addLocationAccessoryView() {
-        var toolbar = UIToolbar(frame: CGRectMake(0, 0, self.view.frame.width, 44))
+        let toolbar = UIToolbar(frame: CGRectMake(0, 0, self.view.frame.width, 44))
         toolbar.barStyle = UIBarStyle.Default
-        var space = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
-        var done = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "doneTapped:")
+        let space = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+        let done = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "doneTapped:")
         toolbar.items = [space, done]
         itemLocationTextField.inputAccessoryView = toolbar
     }
@@ -85,10 +85,10 @@ class GroceryItemViewController : UIViewController, UIPickerViewDataSource, UIPi
     
     //MARK: Delegates
    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
-       return ConfigurationManager.manager.storeLocations[row] as String
+       return ConfigurationManager.manager.storeLocations[row] as! String
    }
  
    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-       itemLocationTextField.text = ConfigurationManager.manager.storeLocations[row] as String
+       itemLocationTextField.text = ConfigurationManager.manager.storeLocations[row] as! String
    }
 }
