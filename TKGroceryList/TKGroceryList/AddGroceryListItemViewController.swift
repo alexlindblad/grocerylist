@@ -238,6 +238,7 @@ class AddGroceryListItemViewController: BaseAddGroceryItemTableViewController, U
                 self.navigationController?.pushViewController(viewController, animated: true)
                 return
             }
+            
             selectedItem = resultsTableController.filteredProducts[indexPath.row-1]
         }
 
